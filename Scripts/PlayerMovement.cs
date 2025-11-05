@@ -31,6 +31,8 @@ public partial class PlayerMovement : CharacterBody2D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
+		
+		//TODO climb ladder
 
 		Velocity = velocity;
 		MoveAndSlide();
