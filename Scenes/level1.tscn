@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=4 uid="uid://bwvxjvdcb0j4"]
+
+[ext_resource type="TileSet" uid="uid://bemgd3w7oa23h" path="res://Assets/Tilesets/DirtTileSet.tres" id="1_4hvuo"]
+[ext_resource type="PackedScene" uid="uid://bo0pwsa6hw5ue" path="res://Scenes/player.tscn" id="1_vly50"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vly50")]
+position = Vector2(0, -18)
+
+[node name="PlatformLayer" type="TileMapLayer" parent="."]
+position = Vector2(-71, 64)
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAQAAAABAP//AAACAAQAAAACAP//AAACAAQAAAADAP//AAACAAQAAAAEAP//AAAAAAQAAQAEAP7/AAAAAAAABQADAP7/AAACAAAAAAACAP7/AAACAAAAAAABAP7/AAACAAAAAAAAAP7/AAAAAAAAAAA=")
+tile_set = ExtResource("1_4hvuo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, -25)
+zoom = Vector2(3.81, 3.81)
