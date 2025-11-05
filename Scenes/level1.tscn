@@ -18,19 +18,22 @@ tile_map_data = PackedByteArray("AAD7/wEAAQACAAEAAAD8/wEAAQACAAEAAAD9/wEAAQACAAE
 tile_set = ExtResource("1_4hvuo")
 
 [node name="PlatformLayer" type="TileMapLayer" parent="Tilemap Layers"]
-position = Vector2(-71, 64)
 tile_map_data = PackedByteArray("AAAAAP//AAAAAAQAAAABAP//AAACAAQAAAACAP//AAACAAQAAAADAP//AAACAAQAAAAEAP//AAACAAQAAAAEAP7/AAACAAAAAAADAP7/AAACAAAAAAACAP7/AAACAAAAAAABAP7/AAACAAAAAAAAAP7/AAAAAAAAAAAFAP7/AAAKAAAAAAAGAP7/AAACAAAAAAAHAP7/AAACAAAAAAAIAP7/AAACAAAAAAAFAP//AAACAAQAAAAGAP//AAACAAQAAAAHAP//AAACAAQAAAAIAP//AAACAAQAAAAJAP//AAACAAQAAAAKAP//AAACAAQAAAAKAP7/AAACAAAAAAAJAP7/AAACAAAAAAAFAP3/AAAEAAIAAAAFAPz/AAAIAAIAAAAEAPz/AAAGAAAAAAAFAPv/AAAEAAAAAAALAP//AAACAAQAAAAMAP//AAACAAQAAAANAP//AAACAAQAAAAOAP//AAACAAQAAAAPAP//AAACAAQAAAAQAP//AAACAAQAAAARAP//AAACAAQAAAASAP//AAACAAQAAAATAP//AAACAAQAAAAUAP//AAACAAQAAAAVAP//AAAAAAQAAQALAP7/AAACAAAAAAAMAP7/AAACAAAAAAANAP7/AAACAAAAAAAOAP7/AAACAAAAAAAPAP7/AAACAAAAAAAQAP7/AAACAAAAAAARAP7/AAACAAAAAAASAP7/AAACAAAAAAATAP7/AAACAAAAAAAUAP7/AAACAAAAAAAVAP7/AAAAAAAABQA=")
 tile_set = ExtResource("1_4hvuo")
 
+[node name="LadderLayer" type="TileMapLayer" parent="Tilemap Layers"]
+tile_map_data = PackedByteArray("AAAGAP3/AgAAAAAAAAAGAPz/AgAAAAAAAAAGAPv/AgACAAAAAAA=")
+tile_set = ExtResource("1_4hvuo")
+
 [node name="Player" parent="." instance=ExtResource("1_vly50")]
-position = Vector2(0, -18)
+position = Vector2(52, -85)
 
 [node name="Cameras" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="Cameras"]
 physics_interpolation_mode = 1
-position = Vector2(0, -31.46)
-zoom = Vector2(7, 7)
+position = Vector2(52, -98.46)
+zoom = Vector2(2, 2)
 process_callback = 0
 editor_draw_limits = true
 
@@ -41,11 +44,11 @@ script = ExtResource("3_y4dr7")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Cameras" node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(0, -31.46)
+position = Vector2(52, -98.46)
 script = ExtResource("3_lyd6k")
 follow_mode = 5
 follow_target = NodePath("../../Player")
-zoom = Vector2(7, 7)
+zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_didp7")
 follow_offset = Vector2(0, -13.46)
 follow_damping = true
