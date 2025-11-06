@@ -162,6 +162,7 @@ height = 15.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 4
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

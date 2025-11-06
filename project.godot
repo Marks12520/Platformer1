@@ -70,6 +70,12 @@ Ladder={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Platforms"
+2d_physics/layer_2="Ladder"
+2d_physics/layer_3="Player"
+
 [physics]
 
 2d/default_gravity=1960.0

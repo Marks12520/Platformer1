@@ -17,20 +17,21 @@ public partial class PlayerMovement : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
+		Vector2 direction = Input.GetVector("Move_left", "Move_right", "Move_up", "Move_down");
 
 		// Apply gravity
 		if (!IsOnFloor())
 		{
-			velocity += GetGravity() * (float)delta;
+			velocity +=GetGravity() * (float)delta;
 		}
-
+		
 		// Jump
 		if (Input.IsActionJustPressed("Jump") && IsOnFloor())
 		{
 			velocity.Y = jumpVelocity;
 		}
 
-		Vector2 direction = Input.GetVector("Move_left", "Move_right", "Move_down", "Move_up");
+		// Moving
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * speed;
@@ -41,9 +42,11 @@ public partial class PlayerMovement : CharacterBody2D
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
 		}
 
+		// Climbing
+		//if ()
+		
 		Velocity = velocity;
 		MoveAndSlide();
-		GD.Print(direction);
 	}
 
 	private void FlipCharacter(Vector2 direction)
