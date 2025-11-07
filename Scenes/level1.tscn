@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://bwvxjvdcb0j4"]
+[gd_scene load_steps=11 format=4 uid="uid://bwvxjvdcb0j4"]
 
 [ext_resource type="TileSet" uid="uid://pqkqv44ukoj6" path="res://Assets/Tilesets/Background.tres" id="1_2a60c"]
 [ext_resource type="TileSet" uid="uid://bemgd3w7oa23h" path="res://Assets/Tilesets/Platform.tres" id="1_4hvuo"]
 [ext_resource type="PackedScene" uid="uid://bo0pwsa6hw5ue" path="res://Scenes/player.tscn" id="1_vly50"]
 [ext_resource type="TileSet" uid="uid://dr2h5xnel4dks" path="res://Assets/Tilesets/Ladder.tres" id="3_4iphx"]
+[ext_resource type="TileSet" uid="uid://m5rkg0o30k4y" path="res://Assets/Tilesets/Effectors.tres" id="3_jgkgd"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_lyd6k"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_y4dr7"]
 [ext_resource type="TileSet" uid="uid://cqu5e3jgxli3s" path="res://Assets/Tilesets/Decorations.tres" id="4_4iphx"]
@@ -23,6 +24,10 @@ tile_set = ExtResource("1_2a60c")
 [node name="PlatformLayer" type="TileMapLayer" parent="Background Layers"]
 tile_map_data = PackedByteArray("AAAAAP//AAACAAQAAAABAP//AAACAAQAAAACAP//AAACAAQAAAADAP//AAACAAQAAAAEAP//AAACAAQAAAAEAP7/AAACAAAAAAADAP7/AAACAAAAAAACAP7/AAACAAAAAAABAP7/AAACAAAAAAAAAP7/AAACAAAAAAAFAP7/AAAKAAAAAAAGAP7/AAACAAAAAAAHAP7/AAACAAAAAAAIAP7/AAACAAAAAAAFAP//AAACAAQAAAAGAP//AAACAAQAAAAHAP//AAACAAQAAAAIAP//AAACAAQAAAAJAP//AAACAAQAAAAKAP//AAACAAQAAAAKAP7/AAACAAAAAAAJAP7/AAACAAAAAAAFAP3/AAAEAAIAAAAFAPz/AAAIAAIAAAAEAPz/AAAGAAAAAAAFAPv/AAAEAAAAAAALAP//AAACAAQAAAAMAP//AAACAAQAAAANAP//AAACAAQAAAAOAP//AAACAAQAAAAPAP//AAACAAQAAAAQAP//AAACAAQAAAARAP//AAACAAQAAAASAP//AAACAAQAAAATAP//AAACAAQAAAAUAP//AAACAAQAAAAVAP//AAAAAAQAAQALAP7/AAACAAAAAAAMAP7/AAACAAAAAAANAP7/AAACAAAAAAAOAP7/AAACAAAAAAAPAP7/AAACAAAAAAAQAP7/AAACAAAAAAARAP7/AAACAAAAAAASAP7/AAACAAAAAAATAP7/AAACAAAAAAAUAP7/AAACAAAAAAAVAP7/AAAAAAAABQD///7/AAAKAAIAAwD/////AAACAAQAAAD+//7/AAAAAAIAAAD+////AAAAAAQAAAD///3/AAAIAAYAAAD///z/AAAIAAYAAAD///v/AAAIAAYAAAD///r/AAAIAAYAAAD///n/AAAIAAYAAAD///j/AAAIAAYAAAD+//3/AAAAAAIAAAD+//z/AAAAAAIAAAD+//v/AAAAAAIAAAD+//r/AAAAAAIAAAD+//n/AAAAAAIAAAD+//j/AAAAAAIAAAD+//f/AAAAAAIAAAD+//b/AAAAAAIAAAD+//X/AAAAAAIAAAD+//T/AAAAAAIAAAD+//P/AAAAAAIAAAD+//L/AAAAAAAAAAD///L/AAAAAAAABQD///P/AAAIAAYAAAD///T/AAAIAAYAAAD///X/AAAIAAYAAAD///b/AAAIAAYAAAD///f/AAAIAAYAAAA=")
 tile_set = ExtResource("1_4hvuo")
+
+[node name="EffectorsLayer" type="TileMapLayer" parent="Background Layers"]
+tile_map_data = PackedByteArray("AAAHAP3/AAAAAAAAAAA=")
+tile_set = ExtResource("3_jgkgd")
 
 [node name="LadderLayer" type="TileMapLayer" parent="Background Layers"]
 tile_map_data = PackedByteArray("AAAGAP3/AgAAAAAAAAAGAPz/AgAAAAAAAAAGAPv/AgACAAAAAAA=")
