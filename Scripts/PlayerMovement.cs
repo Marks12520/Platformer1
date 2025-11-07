@@ -68,6 +68,12 @@ public partial class PlayerMovement : CharacterBody2D
 			velocity.Y -= 1000;
 			Velocity = velocity;
 		}
+		if (TML.Name == "EffectorsLayer")
+		{
+			Vector2 velocity = Velocity;
+			velocity.Y -= 1000;
+			Velocity = velocity;
+		}
 	}
 	
 	private void _on_area_2d_body_exited(TileMapLayer TML)
