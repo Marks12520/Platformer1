@@ -166,6 +166,7 @@ size = Vector2(20, 32)
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -182,7 +183,7 @@ shape = SubResource("CapsuleShape2D_v0iea")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -4)

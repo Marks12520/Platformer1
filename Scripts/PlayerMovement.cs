@@ -60,18 +60,19 @@ public partial class PlayerMovement : CharacterBody2D
 	
 	private void _on_area_2d_body_entered(TileMapLayer TML)
 	{
-		if (TML.Name == "LadderLayer")
+		if (TML.Name == "LadderLayer") {allowClimb = true;}
+		
+		if (TML.Name == "EffectorsLayer")
 		{
-			allowClimb = true;
+			Vector2 velocity = Velocity;
+			velocity.Y -= 1000;
+			Velocity = velocity;
 		}
 	}
 	
 	private void _on_area_2d_body_exited(TileMapLayer TML)
 	{
-		if (TML.Name == "LadderLayer")
-		{
-			allowClimb = false;
-		}
+		if (TML.Name == "LadderLayer") {allowClimb = false;}
 	}
 	
 	private void FlipCharacter(Vector2 direction)
