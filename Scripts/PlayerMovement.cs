@@ -73,7 +73,7 @@ public partial class PlayerMovement : CharacterBody2D
 		if (TML.Name == "EffectorsLayer")
 		{
 			Vector2 velocity = Velocity;
-			velocity.Y -= 800;
+			velocity.Y -= 850;
 			Velocity = velocity;
 		}
 	}
@@ -93,32 +93,40 @@ public partial class PlayerMovement : CharacterBody2D
 	
 	private void FlipCharacter(Vector2 direction)
 	{
-		if (MathF.Sign(direction.X) > 0)
+		if (!allowClimb)
 		{
-			as2d.FlipH = false;
-		}
-		else if (MathF.Sign(direction.X) < 0)
-		{
-			as2d.FlipH = true;
+			if (MathF.Sign(direction.X) > 0)
+			{
+				as2d.FlipH = false;
+			}
+			else if (MathF.Sign(direction.X) < 0)
+			{
+				as2d.FlipH = true;
+			}
 		}
 	}
 
 	private void HandleAnimations(Vector2 direction)
 	{
-		if (IsOnFloor() || allowClimb)
+		if (allowClimb && direction.Y != 0)
 		{
-			if (direction.X == 0)
-			{
-				as2d.Animation = "Idle";
-			}
-			else
-			{
-				as2d.Animation = "Run";
-			}
+			as2d.Animation = "Climb";
+		}
+		else if (allowClimb && direction.Y == 0)
+		{
+			as2d.Animation = "IdleClimb";
+		}
+		else if (!allowClimb && direction.X != 0)
+		{
+			as2d.Animation = "Run";
+		}
+		else if (!IsOnFloor())
+		{
+			as2d.Animation = "Jump";
 		}
 		else
 		{
-			as2d.Animation = "Jump";
+			as2d.Animation = "Idle";
 		}
 	}
 }
