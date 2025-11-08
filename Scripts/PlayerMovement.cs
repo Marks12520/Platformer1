@@ -74,6 +74,14 @@ public partial class PlayerMovement : CharacterBody2D
 	{
 		if (TML.Name == "LadderLayer") {allowClimb = false;}
 	}
+
+	private void _on_area_2d_area_entered(Area2D area)
+	{
+		if (area.Name == "Collectible")
+		{
+			GD.Print("Collected coin!");
+		}
+	}
 	
 	private void FlipCharacter(Vector2 direction)
 	{
