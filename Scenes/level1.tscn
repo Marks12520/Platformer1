@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bwvxjvdcb0j4"]
+[gd_scene load_steps=12 format=4 uid="uid://bwvxjvdcb0j4"]
 
 [ext_resource type="TileSet" uid="uid://pqkqv44ukoj6" path="res://Assets/Tilesets/Background.tres" id="1_2a60c"]
 [ext_resource type="TileSet" uid="uid://bemgd3w7oa23h" path="res://Assets/Tilesets/Platform.tres" id="1_4hvuo"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_y4dr7"]
 [ext_resource type="TileSet" uid="uid://cqu5e3jgxli3s" path="res://Assets/Tilesets/Decorations.tres" id="4_4iphx"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_y4dr7"]
+[ext_resource type="PackedScene" uid="uid://b0t6jyejvuoum" path="res://Scenes/collectible.tscn" id="10_bs12r"]
 
 [sub_resource type="Resource" id="Resource_didp7"]
 script = ExtResource("4_y4dr7")
@@ -74,3 +75,6 @@ draw_limits = true
 limit_target = NodePath("../../Background Layers/PlatformLayer")
 limit_margin = Vector4i(25, 0, 0, 30)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Collectible" parent="Cameras" instance=ExtResource("10_bs12r")]
+position = Vector2(104, -92)
