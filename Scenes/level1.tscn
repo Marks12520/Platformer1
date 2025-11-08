@@ -41,9 +41,6 @@ tile_set = ExtResource("4_4iphx")
 [node name="Player" parent="." instance=ExtResource("1_vly50")]
 position = Vector2(52, -85)
 
-[node name="Collectible" parent="." instance=ExtResource("10_bs12r")]
-position = Vector2(304, -335)
-
 [node name="Cameras" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="Cameras"]
@@ -81,3 +78,7 @@ draw_limits = true
 limit_target = NodePath("../../TilemapLayers/PlatformLayer")
 limit_margin = Vector4i(25, 0, 0, 30)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Collectible" parent="." instance=ExtResource("10_bs12r")]
+top_level = true
+position = Vector2(304, -334)
