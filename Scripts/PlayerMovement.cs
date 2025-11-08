@@ -156,6 +156,4 @@ public partial class PlayerMovement : CharacterBody2D
 			as2d.Animation = "Death";
 		}
 	}
-	
-	//I don't give a fuck about this branch
 }
