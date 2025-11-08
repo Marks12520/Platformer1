@@ -40,7 +40,7 @@ tile_map_data = PackedByteArray("AAADAP3/AQAAAAAAAAAIAP3/AQABAAAAAAANAP3/AQADAAA
 tile_set = ExtResource("4_4iphx")
 
 [node name="DangersLayer" type="TileMapLayer" parent="TilemapLayers"]
-tile_map_data = PackedByteArray("AAADAP3/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAPAO//AAAAAAAAAAA=")
 tile_set = ExtResource("6_rqhku")
 
 [node name="Player" parent="." instance=ExtResource("1_vly50")]
@@ -73,7 +73,7 @@ follow_target = NodePath("../../Player")
 zoom = Vector2(2.5, 2.5)
 tween_resource = SubResource("Resource_didp7")
 follow_damping = true
-follow_damping_value = Vector2(0.3, 0.2)
+follow_damping_value = Vector2(0.3, 0.1)
 dead_zone_width = 0.134
 dead_zone_height = 0.25
 limit_left = -30
