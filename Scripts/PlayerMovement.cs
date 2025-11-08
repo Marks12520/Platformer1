@@ -74,11 +74,6 @@ public partial class PlayerMovement : CharacterBody2D
 	{
 		if (TML.Name == "LadderLayer") {allowClimb = false;}
 	}
-
-	private void _on_area_2d_area_entered(Area2D area)
-	{
-		//TODO pick up collectible
-	}
 	
 	private void FlipCharacter(Vector2 direction)
 	{
