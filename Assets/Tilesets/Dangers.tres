@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bleedx7bujs2p"]
+
+[ext_resource type="Texture2D" uid="uid://bl44gb20gq8ai" path="res://Assets/Sprites/dangers.png" id="1_21e5r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_irk3w"]
+texture = ExtResource("1_21e5r")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, -5, 8, -3, 8, 1, 0, 4, 8, 9, 0, 16, 16, -16, 16)
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 32
+physics_layer_0/collision_mask = 4
+sources/0 = SubResource("TileSetAtlasSource_irk3w")

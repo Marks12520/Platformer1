@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bwvxjvdcb0j4"]
+[gd_scene load_steps=13 format=4 uid="uid://bwvxjvdcb0j4"]
 
 [ext_resource type="TileSet" uid="uid://pqkqv44ukoj6" path="res://Assets/Tilesets/Background.tres" id="1_2a60c"]
 [ext_resource type="TileSet" uid="uid://bemgd3w7oa23h" path="res://Assets/Tilesets/Platform.tres" id="1_4hvuo"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_y4dr7"]
 [ext_resource type="TileSet" uid="uid://cqu5e3jgxli3s" path="res://Assets/Tilesets/Decorations.tres" id="4_4iphx"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_y4dr7"]
+[ext_resource type="TileSet" uid="uid://bleedx7bujs2p" path="res://Assets/Tilesets/Dangers.tres" id="6_rqhku"]
 [ext_resource type="PackedScene" uid="uid://b0t6jyejvuoum" path="res://Scenes/collectible.tscn" id="10_bs12r"]
 
 [sub_resource type="Resource" id="Resource_didp7"]
@@ -38,6 +39,10 @@ tile_set = ExtResource("3_4iphx")
 tile_map_data = PackedByteArray("AAADAP3/AQAAAAAAAAAIAP3/AQABAAAAAAANAP3/AQADAAAAAAAAAP3/AQAEAAAAAAAFAPr/AQACAAAAAAAMAP3/AQAEAAAAAAA=")
 tile_set = ExtResource("4_4iphx")
 
+[node name="DangersLayer" type="TileMapLayer" parent="TilemapLayers"]
+tile_map_data = PackedByteArray("AAADAP3/AAAAAAAAAAA=")
+tile_set = ExtResource("6_rqhku")
+
 [node name="Player" parent="." instance=ExtResource("1_vly50")]
 position = Vector2(52, -85)
 
@@ -45,14 +50,11 @@ position = Vector2(52, -85)
 
 [node name="Camera2D" type="Camera2D" parent="Cameras"]
 physics_interpolation_mode = 1
-position = Vector2(345, -246)
+position = Vector2(354, -246)
 zoom = Vector2(2.5, 2.5)
 process_callback = 0
-limit_left = -39
-limit_top = -864
-limit_right = 704
+limit_left = -30
 limit_bottom = -30
-editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Cameras/Camera2D"]
 process_priority = 300
@@ -64,7 +66,7 @@ current = true
 
 [node name="PhantomCamera2D" type="Node2D" parent="Cameras" node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(345, -246)
+position = Vector2(354, -246)
 script = ExtResource("3_lyd6k")
 follow_mode = 5
 follow_target = NodePath("../../Player")
@@ -74,8 +76,8 @@ follow_damping = true
 follow_damping_value = Vector2(0.3, 0.2)
 dead_zone_width = 0.134
 dead_zone_height = 0.25
-draw_limits = true
-limit_target = NodePath("../../TilemapLayers/PlatformLayer")
+limit_left = -30
+limit_bottom = -30
 limit_margin = Vector4i(25, 0, 0, 30)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bo0pwsa6hw5ue"]
+[gd_scene load_steps=36 format=3 uid="uid://bo0pwsa6hw5ue"]
 
 [ext_resource type="Script" uid="uid://chkfy0in270h" path="res://Scripts/PlayerMovement.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dxosjva2oshj" path="res://Assets/Sprites/knight.png" id="1_v0iea"]
@@ -7,6 +7,22 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_bi64h"]
 atlas = ExtResource("1_v0iea")
 region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1odr"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gysh"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfarp"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6uwr"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -108,6 +124,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p1odr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gysh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfarp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6uwr")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cvnsp")
 }, {
 "duration": 1.0,
@@ -200,6 +233,15 @@ height = 14.249999
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(20, 33)
 
+[sub_resource type="Curve" id="Curve_6t5aa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.64556956, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_vgqql"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.5105485, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 scale = Vector2(0.8, 0.8)
@@ -211,8 +253,10 @@ script = ExtResource("1_cvnsp")
 position = Vector2(0, -12)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"IdleClimb"
+animation = &"Death"
 autoplay = "Idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
@@ -221,7 +265,7 @@ shape = SubResource("CapsuleShape2D_v0iea")
 
 [node name="PlayerArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 26
+collision_mask = 58
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
 position = Vector2(0, -3.5)
@@ -230,6 +274,30 @@ shape = SubResource("RectangleShape2D_cvnsp")
 [node name="JumpAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_6t5aa")
 
+[node name="DeathParticles" type="CPUParticles2D" parent="."]
+position = Vector2(4.9999995, 2.4999998)
+emitting = false
+amount = 200
+lifetime = 2.0
+speed_scale = 2.0
+explosiveness = 0.09
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+scale_amount_min = 1.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_6t5aa")
+color = Color(0.99999994, 0.28730667, 0.22523719, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+hue_variation_curve = SubResource("Curve_vgqql")
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="PlayerArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

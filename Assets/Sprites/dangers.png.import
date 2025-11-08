@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjvc2sl4fmov5"
-path="res://.godot/imported/flowers.png-ebb0b36a93e7b7703e0b642ac7d73519.ctex"
+uid="uid://bl44gb20gq8ai"
+path="res://.godot/imported/dangers.png-5df09a463260edd1e64a0f215faf63d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/flowers.png"
-dest_files=["res://.godot/imported/flowers.png-ebb0b36a93e7b7703e0b642ac7d73519.ctex"]
+source_file="res://Assets/Sprites/dangers.png"
+dest_files=["res://.godot/imported/dangers.png-5df09a463260edd1e64a0f215faf63d2.ctex"]
 
 [params]
 

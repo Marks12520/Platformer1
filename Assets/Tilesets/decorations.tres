@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cqu5e3jgxli3s"]
 
-[ext_resource type="Texture2D" uid="uid://cjvc2sl4fmov5" path="res://Assets/Sprites/flowers.png" id="1_6tavd"]
+[ext_resource type="Texture2D" uid="uid://cjvc2sl4fmov5" path="res://Assets/Sprites/decorations.png" id="1_6tavd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vnsyc"]
 texture = ExtResource("1_6tavd")
@@ -10,6 +10,9 @@ texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
+0:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
 
 [resource]
 tile_size = Vector2i(32, 32)

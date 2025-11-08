@@ -7,15 +7,22 @@ public partial class PlayerMovement : CharacterBody2D
 {
 	private float speed = 200.0f;
 	private float jumpVelocity = -500.0f;
+	
 	private AnimatedSprite2D as2d;
+	
 	private AudioStreamPlayer2D jumpAudioPlayer;
+	private CpuParticles2D deathParticles;
+	private Timer deathTimer;
 
 	private bool allowClimb;
+	private bool isDead;
 
 	public override void _Ready()
 	{
 		as2d = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		jumpAudioPlayer = GetNode<AudioStreamPlayer2D>("JumpAudioPlayer");
+		deathParticles = GetNode<CpuParticles2D>("DeathParticles");
+		deathTimer = GetNode<Timer>("DeathTimer");
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -30,7 +37,7 @@ public partial class PlayerMovement : CharacterBody2D
 		}
 		
 		// Jump
-		if (Input.IsActionJustPressed("Jump") && IsOnFloor())
+		if (Input.IsActionJustPressed("Jump") && IsOnFloor() && !isDead)
 		{
 			velocity.Y = jumpVelocity;
 			if (allowClimb == false)
@@ -40,7 +47,7 @@ public partial class PlayerMovement : CharacterBody2D
 		}
 
 		// Moving
-		if (direction != Vector2.Zero)
+		if (direction != Vector2.Zero && !isDead)
 		{
 			velocity.X = direction.X * speed;
 			FlipCharacter(direction);
@@ -76,6 +83,13 @@ public partial class PlayerMovement : CharacterBody2D
 			velocity.Y -= 850;
 			Velocity = velocity;
 		}
+
+		if (TML.Name == "DangersLayer")
+		{
+			isDead = true;
+			deathParticles.Emitting = true;
+			deathTimer.Start();
+		}
 	}
 	
 	private void _on_area_2d_body_exited(TileMapLayer TML)
@@ -89,6 +103,12 @@ public partial class PlayerMovement : CharacterBody2D
 		{
 			GD.Print("Collected coin!");
 		}
+	}
+
+	private void _on_death_timer_timeout()
+	{
+		GD.Print("Restarting level...");
+		GetTree().ReloadCurrentScene();
 	}
 	
 	private void FlipCharacter(Vector2 direction)
@@ -108,25 +128,32 @@ public partial class PlayerMovement : CharacterBody2D
 
 	private void HandleAnimations(Vector2 direction)
 	{
-		if (allowClimb && direction.Y != 0)
+		if (!isDead)
 		{
-			as2d.Animation = "Climb";
-		}
-		else if (allowClimb && direction.Y == 0)
-		{
-			as2d.Animation = "IdleClimb";
-		}
-		else if (!allowClimb && direction.X != 0)
-		{
-			as2d.Animation = "Run";
-		}
-		else if (!IsOnFloor())
-		{
-			as2d.Animation = "Jump";
+			if (allowClimb && direction.Y != 0)
+			{
+				as2d.Animation = "Climb";
+			}
+			else if (allowClimb && direction.Y == 0)
+			{
+				as2d.Animation = "IdleClimb";
+			}
+			else if (!allowClimb && direction.X != 0)
+			{
+				as2d.Animation = "Run";
+			}
+			else if (!IsOnFloor())
+			{
+				as2d.Animation = "Jump";
+			}
+			else
+			{
+				as2d.Animation = "Idle";
+			}
 		}
 		else
 		{
-			as2d.Animation = "Idle";
+			as2d.Animation = "Death";
 		}
 	}
 }
