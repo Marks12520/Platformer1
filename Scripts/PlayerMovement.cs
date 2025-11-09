@@ -14,8 +14,8 @@ public partial class PlayerMovement : CharacterBody2D
 	private AudioStreamPlayer2D jumpAudioPlayer;
 	private CpuParticles2D deathParticles;
 	private Timer deathTimer;
-	private PhantomCamera2D idleCamera;
 	private Timer idleTimer;
+	[Export] private Node2D idleCamera;
 
 	private bool allowClimb;
 	private bool isDead;
@@ -73,6 +73,10 @@ public partial class PlayerMovement : CharacterBody2D
 		}
 		
 		HandleAnimations(direction);
+		if (Input.IsAnythingPressed())
+		{
+			idleCamera.AsPhantomCamera2D().Priority = 0;
+		}
 		
 		Velocity = velocity;
 		MoveAndSlide();
@@ -118,7 +122,7 @@ public partial class PlayerMovement : CharacterBody2D
 	private void _on_idle_timer_timeout()
 	{
 		GD.Print("Player is idle");
-		idleCamera.Priority = 2;
+		idleCamera.AsPhantomCamera2D().Priority = 2;
 	}
 	
 	private void FlipCharacter(Vector2 direction)
