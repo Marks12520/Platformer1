@@ -117,7 +117,7 @@ public partial class PlayerMovement : CharacterBody2D
 
 		if (TML.Name == "DangersLayer")
 		{
-			DamagePlayer(50, deathTimer);
+			DamagePlayer(100, deathTimer);
 		}
 	}
 	

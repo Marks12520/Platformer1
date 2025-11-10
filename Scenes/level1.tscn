@@ -126,16 +126,15 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="NextLevelTransition" type="Area2D" parent="."]
 top_level = true
-position = Vector2(865, -98)
+position = Vector2(910, -96)
 collision_layer = 64
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelTransition"]
-position = Vector2(168, 2)
 shape = SubResource("RectangleShape2D_rqhku")
 
 [node name="NextSpawn" type="Node2D" parent="."]
 position = Vector2(51, -86)
 
 [node name="PreviousSpawn" type="Node2D" parent="."]
-position = Vector2(935, -96)
+position = Vector2(809, -95)
