@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://bo0pwsa6hw5ue"]
+[gd_scene load_steps=37 format=3 uid="uid://bo0pwsa6hw5ue"]
 
 [ext_resource type="Script" uid="uid://chkfy0in270h" path="res://Scripts/PlayerMovement.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dxosjva2oshj" path="res://Assets/Sprites/knight.png" id="1_v0iea"]
 [ext_resource type="AudioStream" uid="uid://fgcvo1ckt5f7" path="res://Assets/SFX/30_Jump_03.wav" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://fj5cyshbe8a1" path="res://Scenes/health_component.tscn" id="4_vgqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("1_v0iea")
@@ -303,6 +304,8 @@ autostart = true
 [node name="LevelTransitionTimer" type="Timer" parent="."]
 wait_time = 0.001
 one_shot = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_vgqql")]
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_area_2d_body_entered"]

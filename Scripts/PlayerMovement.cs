@@ -28,6 +28,8 @@ public partial class PlayerMovement : CharacterBody2D
 	private bool allowClimb;
 	private bool isDead;
 
+	private Node healthComponent;
+
 	public override void _Ready()
 	{
 		as2d = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -39,6 +41,7 @@ public partial class PlayerMovement : CharacterBody2D
 		currentSceneNum = int.Parse(Regex.Match(currentScene, @"\d+").Value);
 		levelTransitionTimer = GetNode<Timer>("LevelTransitionTimer");
 		lastScene = Global.Instance.LastScene;
+		healthComponent = GetNode("HealthComponent");
 
 		//TODO maybe fix this code
 		if (Global.Instance.LastScene > currentSceneNum)
@@ -117,7 +120,7 @@ public partial class PlayerMovement : CharacterBody2D
 
 		if (TML.Name == "DangersLayer")
 		{
-			DamagePlayer(100, deathTimer);
+			healthComponent.Call("Damage", 100);
 		}
 	}
 	
@@ -212,14 +215,10 @@ public partial class PlayerMovement : CharacterBody2D
 		}
 	}
 
-	private void DamagePlayer(int damage, Timer timer)
+	public void HandleDeath()
 	{
-		Global.Instance.Health -= damage;
-		if (Global.Instance.Health <= 0)
-		{
-			isDead = true;
-			deathParticles.Emitting = true;
-			timer.Start();
-		}
+		deathParticles.Emitting = true;
+		deathTimer.Start();
+		isDead = true;
 	}
 }
