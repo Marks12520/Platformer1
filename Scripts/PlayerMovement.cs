@@ -19,6 +19,7 @@ public partial class PlayerMovement : CharacterBody2D
 	[Export] private Node2D nextSpawn;
 	[Export] private Node2D previousSpawn;
 	[Export] private Node2D idleCamera;
+	[Export] private Node2D zoomCamera;
 
 	private string currentScene;
 	private int currentSceneNum;
@@ -98,6 +99,7 @@ public partial class PlayerMovement : CharacterBody2D
 		}
 		
 		HandleAnimations(direction);
+		
 		if (Input.IsAnythingPressed())
 		{
 			idleCamera.AsPhantomCamera2D().Priority = 0;
@@ -107,6 +109,19 @@ public partial class PlayerMovement : CharacterBody2D
 		MoveAndSlide();
 	}
 
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("Zoom_out"))
+		{
+			zoomCamera.AsPhantomCamera2D().Priority = 3;
+		}
+
+		if (@event.IsActionReleased("Zoom_out"))
+		{
+			zoomCamera.AsPhantomCamera2D().Priority = 0;
+		}
+	}
+	
 	private void _on_area_2d_body_entered(TileMapLayer TML)
 	{
 		if (TML.Name == "LadderLayer") {allowClimb = true;}
@@ -118,7 +133,7 @@ public partial class PlayerMovement : CharacterBody2D
 			Velocity = velocity;
 		}
 
-		if (TML.Name == "DangersLayer")
+		if (TML.Name == "SpikesLayer")
 		{
 			healthComponent.Call("Damage", 100);
 		}
