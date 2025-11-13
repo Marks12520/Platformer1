@@ -81,6 +81,7 @@ Zoom_out={
 2d_physics/layer_5="Collectible"
 2d_physics/layer_6="Dangers"
 2d_physics/layer_7="LevelTransition"
+2d_physics/layer_8="Teleporter"
 
 [physics]
 

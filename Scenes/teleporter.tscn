@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://6vjst7js3y7u"]
+
+[ext_resource type="Script" uid="uid://d22qrh8luu4li" path="res://Scripts/Teleporter.cs" id="1_75k4i"]
+[ext_resource type="Texture2D" uid="uid://dwq74r4wravlw" path="res://Assets/Sprites/teleporters.png" id="2_75k4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cx2lq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73k1r"]
+atlas = ExtResource("2_75k4i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi5sq"]
+atlas = ExtResource("2_75k4i")
+region = Rect2(32, 0, 32, 32)
+
+[node name="Teleporter" type="Node2D"]
+script = ExtResource("1_75k4i")
+
+[node name="InputArea" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputArea"]
+scale = Vector2(1.295, 1.295)
+shape = SubResource("RectangleShape2D_cx2lq")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputArea"]
+texture = SubResource("AtlasTexture_73k1r")
+
+[node name="OutputArea" type="Area2D" parent="."]
+position = Vector2(71, 0)
+collision_layer = 128
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutputArea"]
+scale = Vector2(1.295, 1.295)
+shape = SubResource("RectangleShape2D_cx2lq")
+
+[node name="Sprite2D" type="Sprite2D" parent="OutputArea"]
+texture = SubResource("AtlasTexture_vi5sq")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="InputArea" to="." method="_on_input_area_body_entered"]
+[connection signal="body_entered" from="OutputArea" to="." method="_on_output_area_body_entered"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
