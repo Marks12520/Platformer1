@@ -6,6 +6,8 @@ public partial class Teleporter : Node2D
     private Area2D inputArea;
     private Area2D outputArea;
     private Timer cooldownTimer;
+    private AnimatedSprite2D inputSprite;
+    private AnimatedSprite2D outputSprite;
 
     [Export] public Vector2 ExitPosition;
 
@@ -16,6 +18,8 @@ public partial class Teleporter : Node2D
         inputArea = GetNode<Area2D>("InputArea");
         outputArea = GetNode<Area2D>("OutputArea");
         cooldownTimer = GetNode<Timer>("CooldownTimer");
+        inputSprite = GetNode<AnimatedSprite2D>("InputArea/InputAnimatedSprite2D");
+        outputSprite = GetNode<AnimatedSprite2D>("OutputArea/OutputAnimatedSprite2D");
         
         outputArea.GlobalPosition = ExitPosition;
     }
@@ -24,9 +28,7 @@ public partial class Teleporter : Node2D
     {
         if (!hasTeleported)
         {
-            body.Position = outputArea.GlobalPosition;
-            cooldownTimer.Start();
-            hasTeleported = true;
+            Teleport(outputArea.GlobalPosition, body);
         }
     }
     
@@ -34,14 +36,23 @@ public partial class Teleporter : Node2D
     {
         if (!hasTeleported)
         {
-            body.Position = inputArea.GlobalPosition;
-            cooldownTimer.Start();
-            hasTeleported = true;
+            Teleport(inputArea.GlobalPosition, body);
         }
     }
 
     private void _on_cooldown_timer_timeout()
     {
         hasTeleported = false;
+        inputSprite.Animation = "Standby";
+        outputSprite.Animation = "Standby";
+    }
+
+    private void Teleport(Vector2 position, Node2D body)
+    {
+        body.Position = position;
+        cooldownTimer.Start();
+        hasTeleported = true;
+        inputSprite.Animation = "Recharging";
+        outputSprite.Animation = "Recharging";
     }
 }
