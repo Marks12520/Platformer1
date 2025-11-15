@@ -245,9 +245,6 @@ sprite_frames = SubResource("SpriteFrames_mrtqa")
 animation = &"Standby"
 autoplay = "Standby"
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="InputArea"]
-amount = 100
-
 [node name="OutputArea" type="Area2D" parent="."]
 position = Vector2(71, 0)
 collision_layer = 128
