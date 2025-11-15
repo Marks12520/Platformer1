@@ -43,8 +43,7 @@ public partial class PlayerMovement : CharacterBody2D
 		levelTransitionTimer = GetNode<Timer>("LevelTransitionTimer");
 		lastScene = Global.Instance.LastScene;
 		healthComponent = GetNode("HealthComponent");
-
-		//TODO maybe fix this code
+		
 		if (Global.Instance.LastScene > currentSceneNum)
 		{
 			Position = previousSpawn.Position;
@@ -230,7 +229,7 @@ public partial class PlayerMovement : CharacterBody2D
 		}
 	}
 
-	public void HandleDeath()
+	private void HandleDeath()
 	{
 		deathParticles.Emitting = true;
 		deathTimer.Start();
