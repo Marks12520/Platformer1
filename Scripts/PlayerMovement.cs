@@ -121,26 +121,24 @@ public partial class PlayerMovement : CharacterBody2D
 		}
 	}
 	
-	private void _on_area_2d_body_entered(TileMapLayer TML)
+	private void _on_area_2d_body_entered(Node2D body)
 	{
-		if (TML.Name == "LadderLayer") {allowClimb = true;}
+		if (body.Name == "LadderLayer") {allowClimb = true;}
 		
-		if (TML.Name == "BounceLayer")
+		if (body.Name == "BounceLayer")
 		{
 			Vector2 velocity = Velocity;
 			velocity.Y -= bounceAmount;
 			Velocity = velocity;
 		}
 
-		if (TML.Name == "SpikesLayer")
-		{
-			healthComponent.Call("Damage", 100);
-		}
+		if (body.Name == "SpikesLayer") { healthComponent.Call("Damage", 100); }
+		if (Regex.Replace(body.Name, @"\d+", "") == "FallingSpike") { healthComponent.Call("Damage", 100);}
 	}
 	
-	private void _on_area_2d_body_exited(TileMapLayer TML)
+	private void _on_area_2d_body_exited(Node2D body)
 	{
-		if (TML.Name == "LadderLayer") {allowClimb = false;}
+		if (body.Name == "LadderLayer") {allowClimb = false;}
 	}
 
 	private void _on_area_2d_area_entered(Area2D area)
@@ -232,7 +230,10 @@ public partial class PlayerMovement : CharacterBody2D
 	private void HandleDeath()
 	{
 		deathParticles.Emitting = true;
-		deathTimer.Start();
+		if (isDead == false)
+		{
+			deathTimer.Start();
+		}
 		isDead = true;
 	}
 }
