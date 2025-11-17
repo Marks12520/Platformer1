@@ -56,7 +56,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_yvbns")
 }
 autoplay = "Fall"
-speed_scale = 2.0
+speed_scale = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_r3tli")

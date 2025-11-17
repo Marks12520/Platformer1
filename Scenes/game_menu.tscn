@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://sejn5li676gi"]
+
+[ext_resource type="Script" uid="uid://dmw5i6ec4rul2" path="res://Scripts/GameMenu.cs" id="1_r7qr8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fllhd"]
+font_size = 66
+
+[node name="GameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r7qr8")
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.020833334
+anchor_top = 0.0009259259
+anchor_right = 0.15249094
+anchor_bottom = 0.106481485
+text = "Coins: "
+label_settings = SubResource("LabelSettings_fllhd")
+metadata/_edit_use_anchors_ = true

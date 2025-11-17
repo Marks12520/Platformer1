@@ -145,7 +145,7 @@ public partial class PlayerMovement : CharacterBody2D
 	{
 		if (area.Name == "Collectible")
 		{
-			GD.Print("Collected coin!");
+			Global.Instance.Coins += 1;
 		}
 
 		if (area.Name == "NextLevelTransition")
