@@ -133,7 +133,7 @@ public partial class PlayerMovement : CharacterBody2D
 		}
 
 		if (body.Name == "SpikesLayer") { healthComponent.Call("Damage", 100); }
-		if (Regex.Replace(body.Name, @"\d+", "") == "FallingSpike") { healthComponent.Call("Damage", 100);}
+		if (Global.Instance.RemoveNumbers(body.Name) == "FallingSpike") { healthComponent.Call("Damage", 100);}
 	}
 	
 	private void _on_area_2d_body_exited(Node2D body)
@@ -143,13 +143,15 @@ public partial class PlayerMovement : CharacterBody2D
 
 	private void _on_area_2d_area_entered(Area2D area)
 	{
-		if (area.Name == "Collectible")
+		if (Global.Instance.RemoveNumbers(area.Name) == "Collectible")
 		{
 			Global.Instance.Coins += 1;
 		}
 
 		if (area.Name == "NextLevelTransition")
 		{
+			Global.Instance.CoinsBeforeChangingLevel = Global.Instance.Coins;
+			
 			levelTransitionTimer.Start();
 			Global.Instance.LastScene = currentSceneNum;
 			nextScenePath = "res://Scenes/level" + (currentSceneNum + 1) + ".tscn";
@@ -168,6 +170,7 @@ public partial class PlayerMovement : CharacterBody2D
 	{
 		GD.Print("Reloading scene...");
 		GetTree().ReloadCurrentScene();
+		Global.Instance.Coins = Global.Instance.CoinsBeforeChangingLevel;
 	}
 
 	private void _on_idle_timer_timeout()

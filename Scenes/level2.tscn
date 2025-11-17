@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://0827xqca2ki0"]
+[gd_scene load_steps=15 format=4 uid="uid://0827xqca2ki0"]
 
 [ext_resource type="TileSet" uid="uid://pqkqv44ukoj6" path="res://Assets/Tilesets/Background.tres" id="1_mtqcm"]
 [ext_resource type="TileSet" uid="uid://bemgd3w7oa23h" path="res://Assets/Tilesets/Platform.tres" id="2_mmf1u"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bo0pwsa6hw5ue" path="res://Scenes/player.tscn" id="7_orbd0"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_051s1"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="10_in4v8"]
+[ext_resource type="PackedScene" uid="uid://sejn5li676gi" path="res://Scenes/game_menu.tscn" id="11_mtqcm"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_mu7lp"]
 
 [sub_resource type="Resource" id="Resource_d1mwp"]
@@ -50,6 +51,7 @@ tile_set = ExtResource("4_r8hce")
 tile_set = ExtResource("5_ca0bt")
 
 [node name="SpikesLayer" type="TileMapLayer" parent="TilemapLayers"]
+tile_map_data = PackedByteArray("AAD9////AAAAAAAAAAA=")
 tile_set = ExtResource("6_yj6rp")
 
 [node name="Player" parent="." node_paths=PackedStringArray("nextSpawn", "previousSpawn", "idleCamera", "zoomCamera") instance=ExtResource("7_orbd0")]
@@ -168,3 +170,7 @@ position = Vector2(46, 237)
 
 [node name="PreviousSpawn" type="Node2D" parent="Spawns"]
 position = Vector2(809, -95)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameMenu" parent="CanvasLayer" instance=ExtResource("11_mtqcm")]
