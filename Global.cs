@@ -10,6 +10,7 @@ public partial class Global : Node
     public int LastScene { get; set; }
     public int Coins { get; set; }
     public int CoinsBeforeChangingLevel { get; set; }
+    public bool JustDied { get; set; }
 
     public override void _Ready()
     {
@@ -17,6 +18,7 @@ public partial class Global : Node
         Health = 100;
         Coins = 0;
         CoinsBeforeChangingLevel = 0;
+        JustDied = false;
     }
 
     public string RemoveNumbers(string text) => Regex.Replace(text, @"\d+", "");

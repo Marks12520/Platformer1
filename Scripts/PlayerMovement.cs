@@ -18,6 +18,7 @@ public partial class PlayerMovement : CharacterBody2D
 	
 	[Export] private Node2D nextSpawn;
 	[Export] private Node2D previousSpawn;
+	[Export] private Node2D deathSpawn;
 	[Export] private Node2D idleCamera;
 	[Export] private Node2D zoomCamera;
 
@@ -43,8 +44,12 @@ public partial class PlayerMovement : CharacterBody2D
 		levelTransitionTimer = GetNode<Timer>("LevelTransitionTimer");
 		lastScene = Global.Instance.LastScene;
 		healthComponent = GetNode("HealthComponent");
-		
-		if (Global.Instance.LastScene > currentSceneNum)
+
+		if (Global.Instance.JustDied)
+		{
+			Position = deathSpawn.Position;
+		}
+		else if (Global.Instance.LastScene > currentSceneNum)
 		{
 			Position = previousSpawn.Position;
 		}
@@ -52,6 +57,8 @@ public partial class PlayerMovement : CharacterBody2D
 		{
 			Position = nextSpawn.Position;
 		}
+
+		Global.Instance.JustDied = false;
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -238,5 +245,6 @@ public partial class PlayerMovement : CharacterBody2D
 			deathTimer.Start();
 		}
 		isDead = true;
+		Global.Instance.JustDied = true;
 	}
 }

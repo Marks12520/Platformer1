@@ -55,10 +55,11 @@ tile_set = ExtResource("5_eqosv")
 tile_map_data = PackedByteArray("AAD9////AAAAAAAAAAA=")
 tile_set = ExtResource("6_6a7cf")
 
-[node name="Player" parent="." node_paths=PackedStringArray("nextSpawn", "previousSpawn", "idleCamera", "zoomCamera") instance=ExtResource("7_hpjhc")]
+[node name="Player" parent="." node_paths=PackedStringArray("nextSpawn", "previousSpawn", "deathSpawn", "idleCamera", "zoomCamera") instance=ExtResource("7_hpjhc")]
 position = Vector2(52, -85)
 nextSpawn = NodePath("../Spawns/NextSpawn")
 previousSpawn = NodePath("../Spawns/PreviousSpawn")
+deathSpawn = NodePath("../Spawns/DeathSpawn")
 idleCamera = NodePath("../Cameras/IdleCamera")
 zoomCamera = NodePath("../Cameras/ZoomOutCamera")
 
@@ -171,6 +172,9 @@ position = Vector2(46, 237)
 
 [node name="PreviousSpawn" type="Node2D" parent="Spawns"]
 position = Vector2(809, -95)
+
+[node name="DeathSpawn" type="Node2D" parent="Spawns"]
+position = Vector2(-19, -38)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
