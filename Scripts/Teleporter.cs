@@ -21,7 +21,10 @@ public partial class Teleporter : Node2D
         cooldownTimer = GetNode<Timer>("CooldownTimer");
         inputSprite = GetNode<AnimatedSprite2D>("InputArea/InputAnimatedSprite2D");
         outputSprite = GetNode<AnimatedSprite2D>("OutputArea/OutputAnimatedSprite2D");
-        
+    }
+
+    public override void _Process(double delta)
+    { 
         outputArea.GlobalPosition = ExitPosition.GlobalPosition;
     }
     

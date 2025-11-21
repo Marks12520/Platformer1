@@ -72,7 +72,7 @@ tile_map_data = PackedByteArray("AAAIAP3/AQABAAAAAAANAP3/AQADAAAAAAAFAPr/AQACAAA
 tile_set = ExtResource("6_u45xj")
 
 [node name="SpikesLayer" type="TileMapLayer" parent="TilemapLayers"]
-tile_map_data = PackedByteArray("AAAOAO//AAABAAAAAAAQAO3/AAABAAAAACAPAOj/AAAAAAAAAAAQAOj/AAAAAAAAAAANAOj/AAAAAAAAAAAMAOj/AAAAAAAAAAD7/+X/AAABAAAAACD4/+X/AAABAAAAACD1/+X/AAABAAAAACD6//v/AAABAAAAAAD+//v/AAABAAAAAAACAPv/AAABAAAAAAAEAP3/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAOAO//AAABAAAAAAAQAO3/AAABAAAAACAPAOj/AAAAAAAAAAAQAOj/AAAAAAAAAAANAOj/AAAAAAAAAAAMAOj/AAAAAAAAAAD7/+X/AAABAAAAACD4/+X/AAABAAAAACD1/+X/AAABAAAAACD6//v/AAABAAAAAAD+//v/AAABAAAAAAACAPv/AAABAAAAAAAEAP3/AAAAAAAAAAAHAOb/AAAAAAAAAAA=")
 tile_set = ExtResource("7_ay16s")
 
 [node name="Player" parent="." node_paths=PackedStringArray("nextSpawn", "previousSpawn", "deathSpawn", "idleCamera") instance=ExtResource("8_6748a")]
@@ -160,6 +160,10 @@ position = Vector2(1137, -496)
 [node name="Collectible3" parent="Collectibles" instance=ExtResource("12_f8if4")]
 top_level = true
 position = Vector2(-44, -912)
+
+[node name="Collectible5" parent="Collectibles" instance=ExtResource("12_f8if4")]
+top_level = true
+position = Vector2(156, -816)
 
 [node name="Collectible4" parent="Collectibles" instance=ExtResource("12_f8if4")]
 top_level = true

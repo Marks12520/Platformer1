@@ -6,11 +6,6 @@
 texture = ExtResource("1_gbkto")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-0:0/0/terrains_peering_bit/right_side = 0
-0:0/0/terrains_peering_bit/bottom_right_corner = 0
-0:0/0/terrains_peering_bit/bottom_side = 0
 0:0/0/metadata/_better_terrain = {
 0: [0],
 3: [0],
@@ -18,13 +13,6 @@ texture_region_size = Vector2i(32, 32)
 &"type": 0
 }
 2:0/0 = 0
-2:0/0/terrain_set = 0
-2:0/0/terrain = 0
-2:0/0/terrains_peering_bit/right_side = 0
-2:0/0/terrains_peering_bit/bottom_right_corner = 0
-2:0/0/terrains_peering_bit/bottom_side = 0
-2:0/0/terrains_peering_bit/bottom_left_corner = 0
-2:0/0/terrains_peering_bit/left_side = 0
 2:0/0/metadata/_better_terrain = {
 0: [0],
 3: [0],
@@ -34,11 +22,6 @@ texture_region_size = Vector2i(32, 32)
 &"type": 0
 }
 4:0/0 = 0
-4:0/0/terrain_set = 0
-4:0/0/terrain = 0
-4:0/0/terrains_peering_bit/bottom_side = 0
-4:0/0/terrains_peering_bit/bottom_left_corner = 0
-4:0/0/terrains_peering_bit/left_side = 0
 4:0/0/metadata/_better_terrain = {
 4: [0],
 7: [0],
@@ -46,15 +29,7 @@ texture_region_size = Vector2i(32, 32)
 &"type": 0
 }
 2:1/0 = 0
-2:1/0/terrain_set = 0
 0:2/0 = 0
-0:2/0/terrain_set = 0
-0:2/0/terrain = 0
-0:2/0/terrains_peering_bit/right_side = 0
-0:2/0/terrains_peering_bit/bottom_right_corner = 0
-0:2/0/terrains_peering_bit/bottom_side = 0
-0:2/0/terrains_peering_bit/top_side = 0
-0:2/0/terrains_peering_bit/top_right_corner = 0
 0:2/0/metadata/_better_terrain = {
 0: [0],
 3: [0],
@@ -64,16 +39,6 @@ texture_region_size = Vector2i(32, 32)
 &"type": 0
 }
 2:2/0 = 0
-2:2/0/terrain_set = 0
-2:2/0/terrain = 0
-2:2/0/terrains_peering_bit/right_side = 0
-2:2/0/terrains_peering_bit/bottom_right_corner = 0
-2:2/0/terrains_peering_bit/bottom_side = 0
-2:2/0/terrains_peering_bit/bottom_left_corner = 0
-2:2/0/terrains_peering_bit/left_side = 0
-2:2/0/terrains_peering_bit/top_left_corner = 0
-2:2/0/terrains_peering_bit/top_side = 0
-2:2/0/terrains_peering_bit/top_right_corner = 0
 2:2/0/metadata/_better_terrain = {
 0: [0],
 3: [0],
@@ -86,13 +51,6 @@ texture_region_size = Vector2i(32, 32)
 &"type": 0
 }
 4:2/0 = 0
-4:2/0/terrain_set = 0
-4:2/0/terrain = 0
-4:2/0/terrains_peering_bit/bottom_side = 0
-4:2/0/terrains_peering_bit/bottom_left_corner = 0
-4:2/0/terrains_peering_bit/left_side = 0
-4:2/0/terrains_peering_bit/top_left_corner = 0
-4:2/0/terrains_peering_bit/top_side = 0
 4:2/0/metadata/_better_terrain = {
 4: [0],
 7: [0],
@@ -102,11 +60,6 @@ texture_region_size = Vector2i(32, 32)
 &"type": 0
 }
 0:4/0 = 0
-0:4/0/terrain_set = 0
-0:4/0/terrain = 0
-0:4/0/terrains_peering_bit/right_side = 0
-0:4/0/terrains_peering_bit/top_side = 0
-0:4/0/terrains_peering_bit/top_right_corner = 0
 0:4/0/metadata/_better_terrain = {
 0: [0],
 12: [0],
@@ -114,13 +67,6 @@ texture_region_size = Vector2i(32, 32)
 &"type": 0
 }
 2:4/0 = 0
-2:4/0/terrain_set = 0
-2:4/0/terrain = 0
-2:4/0/terrains_peering_bit/right_side = 0
-2:4/0/terrains_peering_bit/left_side = 0
-2:4/0/terrains_peering_bit/top_left_corner = 0
-2:4/0/terrains_peering_bit/top_side = 0
-2:4/0/terrains_peering_bit/top_right_corner = 0
 2:4/0/metadata/_better_terrain = {
 0: [0],
 8: [0],
@@ -130,11 +76,6 @@ texture_region_size = Vector2i(32, 32)
 &"type": 0
 }
 4:4/0 = 0
-4:4/0/terrain_set = 0
-4:4/0/terrain = 0
-4:4/0/terrains_peering_bit/left_side = 0
-4:4/0/terrains_peering_bit/top_left_corner = 0
-4:4/0/terrains_peering_bit/top_side = 0
 4:4/0/metadata/_better_terrain = {
 8: [0],
 11: [0],
@@ -144,9 +85,6 @@ texture_region_size = Vector2i(32, 32)
 
 [resource]
 tile_size = Vector2i(32, 32)
-terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "Terrain 0"
-terrain_set_0/terrain_0/color = Color(1, 0, 0, 1)
 sources/1 = SubResource("TileSetAtlasSource_rlnww")
 metadata/_better_terrain = {
 &"decoration": ["Decoration", Color(0.4117647, 0.4117647, 0.4117647, 1), 3, [], {
