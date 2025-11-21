@@ -177,7 +177,7 @@ shape = SubResource("RectangleShape2D_rqhku")
 [node name="Spawns" type="Node" parent="."]
 
 [node name="NextSpawn" type="Node2D" parent="Spawns"]
-position = Vector2(-388, -122)
+position = Vector2(-92, -917)
 
 [node name="PreviousSpawn" type="Node2D" parent="Spawns"]
 position = Vector2(80, -1249)
