@@ -302,7 +302,6 @@ one_shot = true
 autostart = true
 
 [node name="LevelTransitionTimer" type="Timer" parent="."]
-wait_time = 0.001
 one_shot = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_vgqql")]

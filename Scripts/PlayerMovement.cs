@@ -20,7 +20,7 @@ public partial class PlayerMovement : CharacterBody2D
 	[Export] private Node2D previousSpawn;
 	[Export] private Node2D deathSpawn;
 	[Export] private Node2D idleCamera;
-	[Export] private Node2D zoomCamera;
+	[Export] private FadeAnimation fadeAnimation;
 
 	private string currentScene;
 	private int currentSceneNum;
@@ -57,7 +57,7 @@ public partial class PlayerMovement : CharacterBody2D
 		{
 			Position = nextSpawn.Position;
 		}
-
+		
 		Global.Instance.JustDied = false;
 	}
 	
@@ -155,14 +155,14 @@ public partial class PlayerMovement : CharacterBody2D
 			levelTransitionTimer.Start();
 			Global.Instance.LastScene = currentSceneNum;
 			nextScenePath = "res://Scenes/Levels/level" + (currentSceneNum + 1) + ".tscn";
-			//TODO fade animation
+			fadeAnimation.PlayFadeInAnimation();
 		}
 		else if (area.Name == "PreviousLevelTransition" && currentSceneNum != 1)
 		{
 			levelTransitionTimer.Start();
 			Global.Instance.LastScene = currentSceneNum;
 			nextScenePath = "res://Scenes/Levels/level" + (currentSceneNum - 1) + ".tscn";
-			//TODO fade animation
+			fadeAnimation.PlayFadeInAnimation();
 		}
 	}
 
@@ -216,7 +216,7 @@ public partial class PlayerMovement : CharacterBody2D
 			}
 			else if (!IsOnFloor())
 			{
-				as2d.Animation = "Jump";
+				//as2d.Animation = "Jump";
 			}
 			else
 			{

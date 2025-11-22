@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bwvxjvdcb0j4"]
+[gd_scene load_steps=20 format=4 uid="uid://bwvxjvdcb0j4"]
 
 [ext_resource type="TileSet" uid="uid://pqkqv44ukoj6" path="res://Assets/Tilesets/Background.tres" id="1_ryjqc"]
 [ext_resource type="PackedScene" uid="uid://cbyfymmc32vnj" path="res://Scenes/GameObjects/falling_spike.tscn" id="2_xe7un"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://6vjst7js3y7u" path="res://Scenes/GameObjects/teleporter.tscn" id="13_60msr"]
 [ext_resource type="PackedScene" uid="uid://bdrux5mgevle4" path="res://Scenes/GameObjects/side_one_way.tscn" id="14_4xs7e"]
 [ext_resource type="PackedScene" uid="uid://sejn5li676gi" path="res://Scenes/Menus/game_menu.tscn" id="15_j5o2p"]
+[ext_resource type="PackedScene" uid="uid://ww7qrrq562qc" path="res://Scenes/Menus/fade.tscn" id="16_xe7un"]
 
 [sub_resource type="Resource" id="Resource_d1mwp"]
 script = ExtResource("11_d2e0u")
@@ -75,12 +76,13 @@ tile_set = ExtResource("6_u45xj")
 tile_map_data = PackedByteArray("AAAOAO//AAABAAAAAAAQAO3/AAABAAAAACAPAOj/AAAAAAAAAAAQAOj/AAAAAAAAAAANAOj/AAAAAAAAAAAMAOj/AAAAAAAAAAD7/+X/AAABAAAAACD4/+X/AAABAAAAACD1/+X/AAABAAAAACD6//v/AAABAAAAAAD+//v/AAABAAAAAAACAPv/AAABAAAAAAAEAP3/AAAAAAAAAAA=")
 tile_set = ExtResource("7_ay16s")
 
-[node name="Player" parent="." node_paths=PackedStringArray("nextSpawn", "previousSpawn", "deathSpawn", "idleCamera") instance=ExtResource("8_6748a")]
+[node name="Player" parent="." node_paths=PackedStringArray("nextSpawn", "previousSpawn", "deathSpawn", "idleCamera", "fadeAnimation") instance=ExtResource("8_6748a")]
 position = Vector2(-386.99997, -106)
 nextSpawn = NodePath("../Spawns/NextSpawn")
 previousSpawn = NodePath("../Spawns/PreviousSpawn")
 deathSpawn = NodePath("../Spawns/DeathSpawn")
 idleCamera = NodePath("../Cameras/IdleCamera")
+fadeAnimation = NodePath("../CanvasLayer/Fade")
 
 [node name="Cameras" type="Node" parent="."]
 
@@ -177,7 +179,7 @@ shape = SubResource("RectangleShape2D_rqhku")
 [node name="Spawns" type="Node" parent="."]
 
 [node name="NextSpawn" type="Node2D" parent="Spawns"]
-position = Vector2(-387, -113)
+position = Vector2(130, -843)
 
 [node name="PreviousSpawn" type="Node2D" parent="Spawns"]
 position = Vector2(80, -1249)
@@ -201,3 +203,5 @@ layer = 2
 
 [node name="GameMenu" parent="CanvasLayer" instance=ExtResource("15_j5o2p")]
 top_level = true
+
+[node name="Fade" parent="CanvasLayer" instance=ExtResource("16_xe7un")]
