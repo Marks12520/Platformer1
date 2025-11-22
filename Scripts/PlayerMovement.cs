@@ -117,7 +117,10 @@ public partial class PlayerMovement : CharacterBody2D
 
 	public override void _Input(InputEvent @event)
 	{
-		
+		if (@event.IsActionPressed("test"))
+		{
+			GD.Print(Global.Instance.CollectedFlowers);
+		}
 	}
 	
 	private void _on_area_2d_body_entered(Node2D body)

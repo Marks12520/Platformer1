@@ -182,5 +182,5 @@ position = Vector2(-19, -38)
 
 [node name="Collectibles" type="Node" parent="."]
 
-[node name="Flower6" parent="Collectibles" instance=ExtResource("12_o7bax")]
+[node name="Flower1" parent="Collectibles" instance=ExtResource("12_o7bax")]
 position = Vector2(-164, -26)

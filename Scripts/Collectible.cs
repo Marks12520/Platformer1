@@ -5,20 +5,23 @@ public partial class Collectible : Area2D
 {
     private CpuParticles2D particles;
     private AnimatedSprite2D sprite;
+    private string name;
     
     public override void _Ready()
     {
         particles = GetNode<CpuParticles2D>("CPUParticles2D");
         sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
+        name = GetParent().GetParent().Name+"/"+Name;
         
         sprite.Animation = "Idle";
 
-        if (Global.Instance.CollectedFlowers.ContainsKey(Name) == false)
+        if (Global.Instance.CollectedFlowers.ContainsKey(name) == false)
         {
-            Global.Instance.CollectedFlowers.Add(Name, false);
+            Global.Instance.CollectedFlowers.Add(name, false);
         }
         
-        if (Global.Instance.CollectedFlowers[Name])
+        if (Global.Instance.CollectedFlowers[name])
         {
             sprite.Animation = "Collected";
             SetDeferred("monitorable", false);
@@ -34,6 +37,6 @@ public partial class Collectible : Area2D
         sprite.Animation = "Collected";
         SetDeferred("monitorable", false);
         
-        Global.Instance.CollectedFlowers[Name] = true;
+        Global.Instance.CollectedFlowers[name] = true;
     }
 }

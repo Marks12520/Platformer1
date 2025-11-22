@@ -217,7 +217,7 @@ texture_region_size = Vector2i(32, 32)
 8: [0],
 11: [0],
 12: [0],
-&"symmetry": 0,
+&"symmetry": 1,
 &"type": 0
 }
 10:2/next_alternative_id = 4
