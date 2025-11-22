@@ -324,6 +324,12 @@ enum FollowLockAxis {
 	get = get_environment
 
 
+## Overrides the [member Camera3D.compositor] resource property.
+@export var compositor: Compositor = null:
+	set = set_compositor,
+	get = get_compositor
+
+
 @export_group("Follow Parameters")
 ## Offsets the [member follow_target] position.
 @export var follow_offset: Vector3 = Vector3.ZERO:
@@ -824,18 +830,8 @@ func _ready():
 					_follow_spring_arm.global_rotation = initial_rotation
 					_has_follow_spring_arm = true
 					top_level = false
-		FollowMode.FRAMED:
-			if not Engine.is_editor_hint():
-				if is_instance_valid(follow_target):
-					_follow_framed_offset = global_position - _get_target_position_offset()
-				_current_rotation = global_rotation
-		FollowMode.GROUP:
-			_follow_targets_size_check()
 		_:
-			if is_instance_valid(follow_target):
-				_transform_output.origin = _get_target_position_offset()
-			else:
-				_transform_output.origin = global_position
+			_transform_output.origin = global_position
 
 	if not Engine.is_editor_hint():
 		_preview_noise = true
@@ -990,6 +986,7 @@ func _set_follow_position() -> void:
 								_follow_target_position = target_position
 					else:
 						_follow_framed_offset = global_position - _get_target_position_offset()
+						_follow_target_position = global_position
 						_current_rotation = global_rotation
 						return
 			else:
@@ -1032,7 +1029,7 @@ func _set_look_at_position() -> void:
 
 		LookAtMode.GROUP:
 			if not _has_multiple_look_at_targets:
-				_look_at_target_position =look_at_targets[_look_at_targets_single_target_index].global_position
+				_look_at_target_position = look_at_targets[_look_at_targets_single_target_index].global_position
 			else:
 				var bounds: AABB = AABB(look_at_targets[0].global_position, Vector3.ZERO)
 				for node in look_at_targets:
@@ -1251,7 +1248,7 @@ func _follow_targets_size_check() -> void:
 	_follow_targets = []
 	for i in follow_targets.size():
 		if follow_targets[i] == null: continue
-		if follow_targets[i].is_inside_tree():
+		if is_instance_valid(follow_targets[i]):
 			_follow_targets.append(follow_targets[i])
 			targets_size += 1
 			_follow_targets_single_target_index = i
@@ -1489,8 +1486,6 @@ func get_tween_ease() -> int:
 func set_is_active(node: Node, value: bool) -> void:
 	if node is PhantomCameraHost:
 		_is_active = value
-		if value:
-			_should_follow_checker()
 	else:
 		printerr("PCams can only be set from the PhantomCameraHost")
 ## Gets current active state of the [param PhantomCamera3D].
@@ -2135,6 +2130,15 @@ func set_attributes(value: CameraAttributes) -> void:
 ## Gets the [Camera3D.attributes] value assigned to the [Camera3DResource].
 func get_attributes() -> CameraAttributes:
 	return attributes
+
+## Assigns a new [Compositor] resource to the [Camera3DResource].
+func set_compositor(value: Compositor) -> void:
+	compositor = value
+	camera_3d_resource_property_changed.emit("compositor", value)
+
+## Gets the [Camera3D.compositor] value assigned to the [Camera3DResource].
+func get_compositor() -> Compositor:
+	return compositor
 
 
 ## Assigns a new [member Camera3D.h_offset] value.[br]
