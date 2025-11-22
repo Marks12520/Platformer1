@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=4 uid="uid://ku8dynjr4ab0"]
+[gd_scene load_steps=5 format=4 uid="uid://ku8dynjr4ab0"]
 
 [ext_resource type="Script" uid="uid://bm5ayiuphftab" path="res://Scripts/StartMenu.cs" id="1_juhg0"]
 [ext_resource type="TileSet" uid="uid://bemgd3w7oa23h" path="res://Assets/Tilesets/Platform.tres" id="2_2ro5p"]
 [ext_resource type="TileSet" uid="uid://pqkqv44ukoj6" path="res://Assets/Tilesets/Background.tres" id="3_f2o8f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2o8f"]
+bg_color = Color(0.43137255, 0.6666667, 0.26666668, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.3372549, 0.5137255, 0.21960784, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -22,26 +34,42 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -291.0
-offset_top = -193.0
+offset_top = -288.0
 offset_right = 291.0
-offset_bottom = 193.0
+offset_bottom = 288.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5294118, 0.44313726, 0.32941177, 1)
+theme_override_colors/font_hover_color = Color(0.5294118, 0.44313726, 0.32941177, 1)
 theme_override_font_sizes/font_size = 86
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2o8f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f2o8f")
 text = "PLAY"
 expand_icon = true
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5294118, 0.44313726, 0.32941177, 1)
+theme_override_colors/font_hover_color = Color(0.5294118, 0.44313726, 0.32941177, 1)
 theme_override_font_sizes/font_size = 86
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2o8f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f2o8f")
 text = "SETTINGS"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.5294118, 0.44313726, 0.32941177, 1)
+theme_override_colors/font_hover_color = Color(0.5294118, 0.44313726, 0.32941177, 1)
 theme_override_font_sizes/font_size = 86
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2o8f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f2o8f")
 text = "QUIT"
 
 [node name="Dirt" type="TileMapLayer" parent="."]
