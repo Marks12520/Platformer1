@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Text.RegularExpressions;
+using Godot.Collections;
 
 public partial class Global : Node
 {
@@ -11,6 +12,7 @@ public partial class Global : Node
     public int Coins { get; set; }
     public int CoinsBeforeChangingLevel { get; set; }
     public bool JustDied { get; set; }
+    public Dictionary<string, bool> CollectedFlowers { get; set; }
 
     public override void _Ready()
     {

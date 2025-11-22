@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class Collectible : Area2D
 {
@@ -22,5 +23,6 @@ public partial class Collectible : Area2D
         }
         sprite.Animation = "Collected";
         SetDeferred("monitorable", false);
+
     }
 }
