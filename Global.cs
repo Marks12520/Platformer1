@@ -12,7 +12,7 @@ public partial class Global : Node
     public int Flowers;
     public bool JustDied;
     public Dictionary<string, bool> CollectedFlowers;
-    public Dictionary<string, bool> CompletedLevels;
+    public Dictionary<string, bool> UnlockedLevels;
 
     public override void _Ready()
     {
@@ -22,8 +22,20 @@ public partial class Global : Node
         JustDied = false;
 
         CollectedFlowers = new(){};
-        CompletedLevels = new(){};
+        UnlockedLevels = new()
+        {
+            {"level1", true}
+        };
     }
 
+    public override void _Input(InputEvent @event)
+    {
+        if (@event.IsActionPressed("dictionary"))
+        {
+            GD.Print(Global.Instance.CollectedFlowers);
+            GD.Print(Global.Instance.UnlockedLevels);
+        }
+    }
+    
     public string RemoveNumbers(string text) => Regex.Replace(text, @"\d+", "");
 }

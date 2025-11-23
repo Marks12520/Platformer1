@@ -14,4 +14,12 @@ public partial class GameMenu : Control
 	{
 		coinLabel.Text = "Flowers: " + Global.Instance.Flowers;
 	}
+
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("mainmenu"))
+		{
+			GetTree().ChangeSceneToFile("res://Scenes/Menus/start_menu.tscn");
+		}
+	}
 }

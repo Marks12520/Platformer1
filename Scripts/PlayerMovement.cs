@@ -59,9 +59,9 @@ public partial class PlayerMovement : CharacterBody2D
 			Position = nextSpawn.Position;
 		}
 		
-		if (Global.Instance.CompletedLevels.ContainsKey(currentScene) == false)
+		if (Global.Instance.UnlockedLevels.ContainsKey(currentScene) == false)
 		{
-			Global.Instance.CompletedLevels.Add(currentScene, false);
+			Global.Instance.UnlockedLevels.Add(currentScene, true);
 		}
 		
 		Global.Instance.JustDied = false;
@@ -121,15 +121,6 @@ public partial class PlayerMovement : CharacterBody2D
 		Velocity = velocity;
 		MoveAndSlide();
 	}
-
-	public override void _Input(InputEvent @event)
-	{
-		if (@event.IsActionPressed("test"))
-		{
-			GD.Print(Global.Instance.CollectedFlowers);
-			GD.Print(Global.Instance.CompletedLevels);
-		}
-	}
 	
 	private void _on_area_2d_body_entered(Node2D body)
 	{
@@ -164,8 +155,6 @@ public partial class PlayerMovement : CharacterBody2D
 			Global.Instance.LastScene = currentSceneNum;
 			nextScenePath = "res://Scenes/Levels/level" + (currentSceneNum + 1) + ".tscn";
 			fadeAnimation.PlayFadeInAnimation();
-			
-			Global.Instance.CompletedLevels[currentScene] = true;
 		}
 		else if (area.Name == "PreviousLevelTransition" && currentSceneNum != 1)
 		{
