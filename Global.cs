@@ -22,10 +22,7 @@ public partial class Global : Node
         JustDied = false;
 
         CollectedFlowers = new(){};
-        UnlockedLevels = new()
-        {
-            {"level1", true}
-        };
+        UnlockedLevels = new(){};
     }
 
     public override void _Input(InputEvent @event)

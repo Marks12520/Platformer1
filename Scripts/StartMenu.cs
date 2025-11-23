@@ -3,6 +3,11 @@ using System;
 
 public partial class StartMenu : Control
 {
+	public override void _Ready()
+	{
+		SaveFileManager.Instance.LoadGame();
+	}
+	
 	private void _on_play_pressed()
 	{
 		//TODO open level select page
@@ -21,11 +26,7 @@ public partial class StartMenu : Control
 	//! Levels
 	private void _on_level_1_pressed()
 	{
-		string level = "level1";
-		if (Global.Instance.UnlockedLevels.ContainsKey(level) && Global.Instance.UnlockedLevels[level])
-		{
-			GetTree().ChangeSceneToFile("res://Scenes/Levels/" + level + ".tscn");
-		}
+		GetTree().ChangeSceneToFile("res://Scenes/Levels/level1.tscn");
 	}
 	
 	private void _on_level_2_pressed()

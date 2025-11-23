@@ -20,6 +20,7 @@ config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Global="*res://Global.cs"
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+SaveFileManager="*res://SaveFileManager.cs"
 
 [display]
 
