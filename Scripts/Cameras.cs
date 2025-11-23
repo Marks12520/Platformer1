@@ -19,13 +19,13 @@ public partial class Cameras : Node
 		SetStuff();
 	}
 
-	public override void _Process(double delta)
-	{
-		if (Engine.IsEditorHint())
-		{
-			SetStuff();
-		}
-	}
+	// public override void _Process(double delta)
+	// {
+	// 	if (Engine.IsEditorHint())
+	// 	{
+	// 		SetStuff();
+	// 	}
+	// }
 	
 	public void SetIdleCameraPriority(int priority)
 	{
