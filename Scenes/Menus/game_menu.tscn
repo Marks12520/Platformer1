@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://sejn5li676gi"]
+[gd_scene load_steps=7 format=3 uid="uid://sejn5li676gi"]
 
 [ext_resource type="Script" uid="uid://dmw5i6ec4rul2" path="res://Scripts/GameMenu.cs" id="1_r7qr8"]
+[ext_resource type="Texture2D" uid="uid://b0qmnhwudxcpx" path="res://Assets/Sprites/collectible.png" id="2_mvukl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8fyo"]
+atlas = ExtResource("2_mvukl")
+region = Rect2(9, 5, 14, 14)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fllhd"]
 font_size = 66
+
+[sub_resource type="Gradient" id="Gradient_nhcfx"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mvukl"]
+gradient = SubResource("Gradient_nhcfx")
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -15,13 +25,77 @@ grow_vertical = 2
 script = ExtResource("1_r7qr8")
 metadata/_edit_use_anchors_ = true
 
-[node name="CoinLabel" type="Label" parent="."]
+[node name="FlowerIcon" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 110.0
+offset_bottom = 112.0
+texture = SubResource("AtlasTexture_k8fyo")
+
+[node name="FlowerLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.020833334
-anchor_top = 0.0009259259
-anchor_right = 0.15249094
-anchor_bottom = 0.106481485
-text = "Flowers:"
+anchor_left = 0.063541666
+anchor_top = 0.013888889
+anchor_right = 0.19519928
+anchor_bottom = 0.119444445
+offset_right = 259.73367
+offset_bottom = 86.77778
+text = "x"
 label_settings = SubResource("LabelSettings_fllhd")
 metadata/_edit_use_anchors_ = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(8, 707.99994)
+scale = Vector2(2.666216, 2.666216)
+texture_normal = SubResource("GradientTexture2D_mvukl")
+passby_press = true
+action = "Move_left"
+visibility_mode = 1
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(386, 705)
+scale = Vector2(2.666091, 2.666091)
+texture_normal = SubResource("GradientTexture2D_mvukl")
+passby_press = true
+action = "Move_right"
+visibility_mode = 1
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(192, 905)
+scale = Vector2(2.666216, 2.666216)
+texture_normal = SubResource("GradientTexture2D_mvukl")
+passby_press = true
+action = "Move_down"
+visibility_mode = 1
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(183, 506)
+scale = Vector2(2.666091, 2.666091)
+texture_normal = SubResource("GradientTexture2D_mvukl")
+passby_press = true
+action = "Move_up"
+visibility_mode = 1
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(1715.0001, 867.00006)
+scale = Vector2(2.6663566, 2.6663566)
+texture_normal = SubResource("GradientTexture2D_mvukl")
+passby_press = true
+action = "Jump"
+visibility_mode = 1
+
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(1725.0001, 22.000002)
+scale = Vector2(2.6663566, 2.6663566)
+texture_normal = SubResource("GradientTexture2D_mvukl")
+passby_press = true
+action = "mainmenu"
+visibility_mode = 1

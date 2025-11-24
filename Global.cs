@@ -17,12 +17,8 @@ public partial class Global : Node
     public override void _Ready()
     {
         Instance = this;
-        Health = 100;
-        Flowers = 0; 
-        JustDied = false;
-
-        CollectedFlowers = new(){};
-        UnlockedLevels = new(){};
+        
+        SetDefaults();
     }
 
     public override void _Input(InputEvent @event)
@@ -32,6 +28,16 @@ public partial class Global : Node
             GD.Print(Global.Instance.CollectedFlowers);
             GD.Print(Global.Instance.UnlockedLevels);
         }
+    }
+
+    public void SetDefaults()
+    {
+        Health = 100;
+        Flowers = 0; 
+        JustDied = false;
+
+        CollectedFlowers = new(){};
+        UnlockedLevels = new(){};
     }
     
     public string RemoveNumbers(string text) => Regex.Replace(text, @"\d+", "");

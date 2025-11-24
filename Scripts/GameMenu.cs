@@ -3,16 +3,16 @@ using System;
 
 public partial class GameMenu : Control
 {
-	private Label coinLabel;
+	private Label flowerLabel;
 	
 	public override void _Ready()
 	{
-		coinLabel = GetNode<Label>("CoinLabel");
+		flowerLabel = GetNode<Label>("FlowerLabel");
 	}
 	
 	public override void _Process(double delta)
 	{
-		coinLabel.Text = "Flowers: " + Global.Instance.Flowers;
+		flowerLabel.Text = "x " + Global.Instance.Flowers;
 	}
 
 	public override void _Input(InputEvent @event)

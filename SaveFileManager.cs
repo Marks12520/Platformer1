@@ -35,4 +35,13 @@ public partial class SaveFileManager : Node
             Global.Instance.Flowers = flowersData.AsInt16();
         }
     }
+
+    public void DeleteSave()
+    {
+        if (FileAccess.FileExists(savePath))
+        {
+            DirAccess.RemoveAbsolute(ProjectSettings.GlobalizePath(savePath));
+            Global.Instance.SetDefaults();
+        }
+    }
 }

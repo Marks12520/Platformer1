@@ -7,7 +7,7 @@ public partial class StartMenu : Control
 	{
 		SaveFileManager.Instance.LoadGame();
 	}
-	
+
 	private void _on_play_pressed()
 	{
 		//TODO open level select page
@@ -21,6 +21,11 @@ public partial class StartMenu : Control
 	private void _on_quit_pressed()
 	{
 		GetTree().Quit();
+	}
+
+	private void _on_delete_pressed()
+	{
+		SaveFileManager.Instance.DeleteSave();
 	}
 	
 	//! Levels

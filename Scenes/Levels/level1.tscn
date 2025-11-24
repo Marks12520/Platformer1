@@ -118,7 +118,6 @@ position = Vector2(-387, -106)
 position = Vector2(53, -912)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
 
 [node name="GameMenu" parent="CanvasLayer" instance=ExtResource("15_j5o2p")]
 top_level = true
