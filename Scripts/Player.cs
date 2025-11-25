@@ -3,7 +3,7 @@ using System;
 using System.Text.RegularExpressions;
 using PhantomCamera;
 
-public partial class PlayerMovement : CharacterBody2D
+public partial class Player : CharacterBody2D
 {
 	[Signal]
 	public delegate void StartSnowEventHandler();

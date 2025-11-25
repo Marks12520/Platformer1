@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cuf7yvljoi8on"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_s27va"]
-[ext_resource type="Script" uid="uid://b88v3g7pmjxc5" path="res://Scripts/Cameras.cs" id="1_s51ir"]
+[ext_resource type="Script" uid="uid://b88v3g7pmjxc5" path="res://Scripts/GameObjects/Cameras.cs" id="1_s51ir"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_s51ir"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_nq5q0"]
 
@@ -20,6 +20,10 @@ script = ExtResource("1_s51ir")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-145, -210)
 zoom = Vector2(2.5, 2.5)
+limit_left = -529
+limit_top = -2353
+limit_right = 2097
+limit_bottom = 111
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]

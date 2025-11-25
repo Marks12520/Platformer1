@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbyfymmc32vnj"]
 
 [ext_resource type="Texture2D" uid="uid://bl44gb20gq8ai" path="res://Assets/Sprites/dangers.png" id="1_ar2on"]
-[ext_resource type="Script" uid="uid://8xs8ql6mu7p7" path="res://Scripts/FallingSpike.cs" id="1_r3tli"]
+[ext_resource type="Script" uid="uid://8xs8ql6mu7p7" path="res://Scripts/GameObjects/FallingSpike.cs" id="1_r3tli"]
 
 [sub_resource type="Animation" id="Animation_ar2on"]
 resource_name = "Fall"
