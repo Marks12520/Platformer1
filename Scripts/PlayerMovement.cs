@@ -21,6 +21,7 @@ public partial class PlayerMovement : CharacterBody2D
 	[Export] private Node2D deathSpawn;
 	[Export] private FadeAnimation fadeAnimation;
 	[Export] private Cameras cameras;
+	[Export] private Node2D zoomCamera;
 
 	private string currentScene;
 	private int currentSceneNum;
@@ -163,18 +164,13 @@ public partial class PlayerMovement : CharacterBody2D
 			nextScenePath = "res://Scenes/Levels/level" + (currentSceneNum - 1) + ".tscn";
 			fadeAnimation.PlayFadeInAnimation();
 		}
-
-		if (area.Name == "ZoomOutArea")
-		{
-			cameras.zoomOut(new Vector2(2f, 2f));
-		}
 	}
 
 	private void _on_player_area_area_exited(Area2D area)
 	{
 		if (area.Name == "ZoomOutArea")
 		{
-			cameras.ResetZoom();
+			zoomCamera.AsPhantomCamera2D().Priority = 0;
 		}
 	}
 

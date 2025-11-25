@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bwvxjvdcb0j4"]
+[gd_scene load_steps=19 format=4 uid="uid://bwvxjvdcb0j4"]
 
 [ext_resource type="TileSet" uid="uid://pqkqv44ukoj6" path="res://Assets/Tilesets/Background.tres" id="1_ryjqc"]
 [ext_resource type="PackedScene" uid="uid://cbyfymmc32vnj" path="res://Scenes/GameObjects/falling_spike.tscn" id="2_xe7un"]
@@ -11,14 +11,19 @@
 [ext_resource type="PackedScene" uid="uid://cuf7yvljoi8on" path="res://Scenes/Levels/cameras.tscn" id="9_8r8ce"]
 [ext_resource type="PackedScene" uid="uid://b0t6jyejvuoum" path="res://Scenes/GameObjects/collectible1.tscn" id="12_f8if4"]
 [ext_resource type="PackedScene" uid="uid://bdrux5mgevle4" path="res://Scenes/GameObjects/side_one_way.tscn" id="14_4xs7e"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="14_ryjqc"]
 [ext_resource type="PackedScene" uid="uid://sejn5li676gi" path="res://Scenes/Menus/game_menu.tscn" id="15_j5o2p"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="15_xe7un"]
 [ext_resource type="PackedScene" uid="uid://ww7qrrq562qc" path="res://Scenes/Menus/fade.tscn" id="16_xe7un"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqhku"]
 size = Vector2(39, 63.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r8ce"]
-size = Vector2(1279, 63)
+size = Vector2(1279, 118)
+
+[sub_resource type="Resource" id="Resource_v3vqe"]
+script = ExtResource("15_xe7un")
 
 [node name="level1" type="Node2D"]
 
@@ -65,13 +70,14 @@ tile_set = ExtResource("6_u45xj")
 tile_map_data = PackedByteArray("AAAOAO//AAABAAAAAAAQAO3/AAABAAAAACAPAOj/AAAAAAAAAAAQAOj/AAAAAAAAAAANAOj/AAAAAAAAAAAMAOj/AAAAAAAAAAD7/+X/AAABAAAAACD4/+X/AAABAAAAACD1/+X/AAABAAAAACD6//v/AAABAAAAAAD+//v/AAABAAAAAAACAPv/AAABAAAAAAAEAP3/AAAAAAAAAAAIAOb/AAABAAAAAAAGAOb/AAABAAAAAAA=")
 tile_set = ExtResource("7_ay16s")
 
-[node name="Player" parent="." node_paths=PackedStringArray("nextSpawn", "previousSpawn", "deathSpawn", "fadeAnimation", "cameras") instance=ExtResource("8_6748a")]
+[node name="Player" parent="." node_paths=PackedStringArray("nextSpawn", "previousSpawn", "deathSpawn", "fadeAnimation", "cameras", "zoomCamera") instance=ExtResource("8_6748a")]
 position = Vector2(-386.99997, -106)
 nextSpawn = NodePath("../Spawns/NextSpawn")
 previousSpawn = NodePath("../Spawns/PreviousSpawn")
 deathSpawn = NodePath("../Spawns/DeathSpawn")
 fadeAnimation = NodePath("../CanvasLayer/Fade")
 cameras = NodePath("../Cameras")
+zoomCamera = NodePath("../ZoomCamera")
 
 [node name="Cameras" parent="." node_paths=PackedStringArray("followTarget", "limitTilemap") instance=ExtResource("9_8r8ce")]
 followTarget = NodePath("../Player")
@@ -131,5 +137,16 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoomOutArea"]
-position = Vector2(-2111.5, -96.5)
+position = Vector2(-2111.5, -124)
 shape = SubResource("RectangleShape2D_8r8ce")
+
+[node name="ZoomCamera" type="Node2D" parent="."]
+position = Vector2(-1810, -559)
+script = ExtResource("14_ryjqc")
+priority = 2
+tween_resource = SubResource("Resource_v3vqe")
+tween_on_load = false
+draw_limits = true
+limit_target = NodePath("../TilemapLayers/PlatformLayer")
+limit_margin = Vector4i(40, 0, 0, 30)
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"

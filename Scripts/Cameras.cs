@@ -47,14 +47,4 @@ public partial class Cameras : Node
 		
 		followCamera.AsPhantomCamera2D().Zoom = zoom;
 	}
-
-	public void zoomOut(Vector2 zoomAmount)
-	{
-		followCamera.AsPhantomCamera2D().Zoom = zoomAmount;
-	}
-
-	public void ResetZoom()
-	{
-		followCamera.AsPhantomCamera2D().Zoom = zoom;
-	}
 }
