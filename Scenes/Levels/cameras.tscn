@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://8umksf8e80fw"
 
 [node name="Cameras" type="Node"]
 script = ExtResource("1_s51ir")
+zoom = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-145, -210)

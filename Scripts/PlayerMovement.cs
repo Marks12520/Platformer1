@@ -163,6 +163,19 @@ public partial class PlayerMovement : CharacterBody2D
 			nextScenePath = "res://Scenes/Levels/level" + (currentSceneNum - 1) + ".tscn";
 			fadeAnimation.PlayFadeInAnimation();
 		}
+
+		if (area.Name == "ZoomOutArea")
+		{
+			cameras.zoomOut(new Vector2(2f, 2f));
+		}
+	}
+
+	private void _on_player_area_area_exited(Area2D area)
+	{
+		if (area.Name == "ZoomOutArea")
+		{
+			cameras.ResetZoom();
+		}
 	}
 
 	private void _on_death_timer_timeout()

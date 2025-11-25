@@ -228,11 +228,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
-radius = 4.0
+radius = 4.9999995
 height = 14.249999
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(20, 33)
+size = Vector2(20, 32.5)
 
 [sub_resource type="Curve" id="Curve_6t5aa"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.64556956, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -245,9 +245,9 @@ point_count = 3
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.9, 0.9)
 collision_layer = 4
-collision_mask = 9
+collision_mask = 41
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -267,7 +267,8 @@ collision_layer = 0
 collision_mask = 122
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
-position = Vector2(0, -3.5)
+position = Vector2(0, -3.7500002)
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="JumpAudioPlayer" type="AudioStreamPlayer2D" parent="."]
@@ -312,6 +313,7 @@ autostart = true
 [node name="HealthComponent" parent="." instance=ExtResource("4_vgqql")]
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="PlayerArea" to="." method="_on_player_area_area_exited"]
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="PlayerArea" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

@@ -62,7 +62,7 @@ limitOffset = Vector4i(15, 15, 15, 305)
 [node name="NextLevelTransition" type="Area2D" parent="."]
 top_level = true
 position = Vector2(81, -1362)
-collision_layer = 64
+collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelTransition"]
@@ -71,7 +71,7 @@ shape = SubResource("RectangleShape2D_rqhku")
 [node name="PreviousLevelTransition" type="Area2D" parent="."]
 top_level = true
 position = Vector2(51, 290)
-collision_layer = 64
+collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PreviousLevelTransition"]

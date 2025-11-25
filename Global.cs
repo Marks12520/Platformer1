@@ -20,16 +20,7 @@ public partial class Global : Node
         
         SetDefaults();
     }
-
-    public override void _Input(InputEvent @event)
-    {
-        if (@event.IsActionPressed("dictionary"))
-        {
-            GD.Print(Global.Instance.CollectedFlowers);
-            GD.Print(Global.Instance.UnlockedLevels);
-        }
-    }
-
+    
     public void SetDefaults()
     {
         Health = 100;
