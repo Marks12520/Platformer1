@@ -10,7 +10,6 @@ public partial class Cameras : Node
 	[Export] private Node2D followTarget;
 	[Export] private TileMapLayer limitTilemap;
 	[Export] private Vector4I limitOffset;
-	[Export] private Vector2 zoom;
 	
 	public override void _Ready()
 	{
@@ -44,7 +43,5 @@ public partial class Cameras : Node
 
 		followCamera.AsPhantomCamera2D().LimitMargin = limitOffset;
 		idleCamera.AsPhantomCamera2D().LimitMargin = limitOffset;
-		
-		followCamera.AsPhantomCamera2D().Zoom = zoom;
 	}
 }

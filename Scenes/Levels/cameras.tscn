@@ -16,11 +16,10 @@ metadata/_custom_type_script = "uid://8umksf8e80fw"
 
 [node name="Cameras" type="Node"]
 script = ExtResource("1_s51ir")
-zoom = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-145, -210)
-zoom = Vector2(3, 3)
+zoom = Vector2(2.5, 2.5)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -37,13 +36,13 @@ position = Vector2(-145, -210)
 script = ExtResource("2_s51ir")
 priority = 1
 follow_mode = 5
-zoom = Vector2(3, 3)
+zoom = Vector2(2.5, 2.5)
 tween_resource = SubResource("Resource_d1mwp")
 tween_on_load = false
 follow_damping = true
 follow_damping_value = Vector2(0.3, 0.2)
-dead_zone_width = 0.134
-dead_zone_height = 0.134
+dead_zone_width = 0.1
+dead_zone_height = 0.2
 draw_limits = true
 limit_margin = Vector4i(15, 170, 15, 30)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"

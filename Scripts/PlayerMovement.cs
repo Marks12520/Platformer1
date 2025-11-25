@@ -5,6 +5,9 @@ using PhantomCamera;
 
 public partial class PlayerMovement : CharacterBody2D
 {
+	[Signal]
+	public delegate void StartSnowEventHandler();
+	
 	private float speed = 200.0f;
 	private float jumpVelocity = -500.0f;
 	private float bounceAmount = -900.0f;
@@ -21,7 +24,6 @@ public partial class PlayerMovement : CharacterBody2D
 	[Export] private Node2D deathSpawn;
 	[Export] private FadeAnimation fadeAnimation;
 	[Export] private Cameras cameras;
-	[Export] private Node2D zoomCamera;
 
 	private string currentScene;
 	private int currentSceneNum;
@@ -164,14 +166,8 @@ public partial class PlayerMovement : CharacterBody2D
 			nextScenePath = "res://Scenes/Levels/level" + (currentSceneNum - 1) + ".tscn";
 			fadeAnimation.PlayFadeInAnimation();
 		}
-	}
-
-	private void _on_player_area_area_exited(Area2D area)
-	{
-		if (area.Name == "ZoomOutArea")
-		{
-			zoomCamera.AsPhantomCamera2D().Priority = 0;
-		}
+		
+		if (area.Name == "SnowStart"){EmitSignalStartSnow();}
 	}
 
 	private void _on_death_timer_timeout()
