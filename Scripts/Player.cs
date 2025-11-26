@@ -108,8 +108,8 @@ public partial class Player : CharacterBody2D
 			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, speed);
 		}
 		
-		// Upwards
-		if (UpwardsStream.Instance.isPlayerInStream && UpwardsStream.Instance.isStreamActive && currentScene == "level2")
+		// Upwards (use getaprent.hasnode to check if the stream exists
+		if (UpwardsStream.Instance.isPlayerInStream && UpwardsStream.Instance.isStreamActive)
 		{
 			GD.Print("Player is in stream");
 			velocity.Y -= 50;
