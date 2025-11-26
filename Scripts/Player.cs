@@ -109,7 +109,7 @@ public partial class Player : CharacterBody2D
 		}
 		
 		// Upwards
-		if (UpwardsStream.Instance.isPlayerInStream && UpwardsStream.Instance.isStreamActive)
+		if (UpwardsStream.Instance.isPlayerInStream && UpwardsStream.Instance.isStreamActive && currentScene == "level2")
 		{
 			GD.Print("Player is in stream");
 			velocity.Y -= 50;
