@@ -133,7 +133,7 @@ collision_mask = 4
 script = ExtResource("12_o7bax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpwardsStream"]
-position = Vector2(929, -985)
+position = Vector2(657, -985)
 shape = SubResource("RectangleShape2D_pyd1a")
 
 [connection signal="StartSnow" from="Player" to="SnowParticles" method="_on_player_start_snow"]

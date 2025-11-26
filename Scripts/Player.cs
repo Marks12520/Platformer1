@@ -111,7 +111,8 @@ public partial class Player : CharacterBody2D
 		// Upwards
 		if (UpwardsStream.Instance.isPlayerInStream && UpwardsStream.Instance.isStreamActive)
 		{
-			GD.Print("Going upwards");
+			GD.Print("Player is in stream");
+			velocity.Y -= 50;
 		}
 		
 		HandleAnimations(direction);
