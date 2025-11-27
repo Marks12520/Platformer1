@@ -138,7 +138,13 @@ position = Vector2(898, -986)
 shape = SubResource("RectangleShape2D_pyd1a")
 
 [node name="AirstreamToggle" parent="." instance=ExtResource("13_0jhw5")]
-position = Vector2(674, -822)
+position = Vector2(656, -816)
+
+[node name="AirstreamToggle2" parent="." instance=ExtResource("13_0jhw5")]
+position = Vector2(720, -816)
+
+[node name="AirstreamToggle3" parent="." instance=ExtResource("13_0jhw5")]
+position = Vector2(784, -816)
 
 [connection signal="StartSnow" from="Player" to="SnowParticles" method="_on_player_start_snow"]
 [connection signal="body_entered" from="UpwardsStream" to="UpwardsStream" method="_on_body_entered"]

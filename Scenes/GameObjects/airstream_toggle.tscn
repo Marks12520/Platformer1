@@ -1,8 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://dksdn0ul11fnp"]
+[gd_scene load_steps=7 format=3 uid="uid://dksdn0ul11fnp"]
 
 [ext_resource type="Script" uid="uid://chqih6i7l3fmj" path="res://Scripts/GameObjects/AirstreamToggle.cs" id="1_35xqu"]
+[ext_resource type="Texture2D" uid="uid://brq8obvotfw76" path="res://Assets/Sprites/airtoggle.png" id="2_nuxmj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0qd2"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npxq7"]
+atlas = ExtResource("2_nuxmj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52chm"]
+atlas = ExtResource("2_nuxmj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_irdqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npxq7")
+}],
+"loop": true,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52chm")
+}],
+"loop": true,
+"name": &"On",
+"speed": 5.0
+}]
 
 [node name="AirstreamToggle" type="Area2D"]
 collision_layer = 16
@@ -11,5 +40,10 @@ script = ExtResource("1_35xqu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_l0qd2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_irdqa")
+animation = &"On"
+autoplay = "Off"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

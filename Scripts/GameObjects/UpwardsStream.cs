@@ -5,8 +5,10 @@ public partial class UpwardsStream : Area2D
 {
 	public static UpwardsStream Instance;
 	
-	public bool isStreamActive = false;
-	public bool isPlayerInStream;
+	public bool IsStreamActive = false;
+	public bool IsPlayerInStream;
+	public int TogglesActive = 0;
+	[Export] public int TogglesRequired = 3;
 
 	public override void _Ready()
 	{
@@ -17,7 +19,7 @@ public partial class UpwardsStream : Area2D
 	{
 		if (body.Name == "Player")
 		{
-			isPlayerInStream = true;
+			IsPlayerInStream = true;
 		}
 	}
 
@@ -25,7 +27,17 @@ public partial class UpwardsStream : Area2D
 	{
 		if (body.Name == "Player")
 		{
-			isPlayerInStream = false;
+			IsPlayerInStream = false;
+		}
+	}
+
+	public void AddToggle()
+	{
+		TogglesActive += 1;
+		if (TogglesActive == TogglesRequired)
+		{
+			IsStreamActive = true;
+			GD.Print("Stream is active");
 		}
 	}
 }
