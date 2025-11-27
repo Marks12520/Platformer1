@@ -109,10 +109,13 @@ public partial class Player : CharacterBody2D
 		}
 		
 		// Upwards (use getaprent.hasnode to check if the stream exists
-		if (UpwardsStream.Instance.isPlayerInStream && UpwardsStream.Instance.isStreamActive)
+		if (GetParent().HasNode("UpwardsStream"))
 		{
-			GD.Print("Player is in stream");
-			velocity.Y -= 50;
+			if (UpwardsStream.Instance.isPlayerInStream && UpwardsStream.Instance.isStreamActive)
+			{
+				GD.Print("Player is in stream");
+				velocity.Y -= 50;
+			}
 		}
 		
 		HandleAnimations(direction);

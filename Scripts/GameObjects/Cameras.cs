@@ -2,7 +2,7 @@ using Godot;
 using System;
 using PhantomCamera;
 
-[Tool]
+//[Tool]
 public partial class Cameras : Node
 {
 	private Node2D followCamera;
