@@ -255,6 +255,7 @@ public partial class Player : CharacterBody2D
 		{
 			deathTimer.Start();
 		}
+		
 		isDead = true;
 		Global.Instance.JustDied = true;
 		fadeAnimation.PlayFadeDeathAnimation();
