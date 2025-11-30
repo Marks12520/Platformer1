@@ -33,6 +33,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "LEVEL 2"
 
+[node name="level3" type="Button" parent="LevelGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "LEVEL 3"
+
 [node name="Delete" type="Button" parent="LevelGrid"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
@@ -92,6 +97,7 @@ tile_set = ExtResource("3_f2o8f")
 
 [connection signal="pressed" from="LevelGrid/level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="LevelGrid/level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="LevelGrid/level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="LevelGrid/Delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="LevelGrid/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

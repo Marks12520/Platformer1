@@ -47,4 +47,13 @@ public partial class StartMenu : Control
 			GetTree().ChangeSceneToFile("res://Scenes/Levels/" + level + ".tscn");
 		}
 	}
+
+	private void _on_level_3_pressed()
+	{
+		string level = "level3";
+		if (Global.Instance.UnlockedLevels.ContainsKey(level) && Global.Instance.UnlockedLevels[level])
+		{
+			GetTree().ChangeSceneToFile("res://Scenes/Levels/" + level + ".tscn");
+		}
+	}
 }
