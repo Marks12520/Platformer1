@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ww7qrrq562qc" path="res://Scenes/Menus/fade.tscn" id="16_xe7un"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r8ce"]
-size = Vector2(3169, 1164)
+size = Vector2(3169, 1178)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqhku"]
 size = Vector2(39, 63.5)
@@ -79,7 +79,7 @@ limitShape = [NodePath("Bounds/Bound 1")]
 [node name="Bounds" type="Node" parent="Cameras"]
 
 [node name="Bound 1" type="CollisionShape2D" parent="Cameras/Bounds"]
-position = Vector2(-393.5, -608)
+position = Vector2(-393.5, -601)
 shape = SubResource("RectangleShape2D_8r8ce")
 debug_color = Color(1, 1, 1, 0)
 
