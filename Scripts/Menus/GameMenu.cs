@@ -20,7 +20,6 @@ public partial class GameMenu : Control
 		if (@event.IsActionPressed("mainmenu"))
 		{
 			GetTree().ChangeSceneToFile("res://Scenes/Menus/start_menu.tscn");
-			SaveFileManager.Instance.SaveGame();
 		}
 	}
 }

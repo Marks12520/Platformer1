@@ -64,10 +64,11 @@ public partial class Player : CharacterBody2D
 		{
 			Global.Instance.UnlockedLevels.Add(currentScene, true);
 		}
-		SaveFileManager.Instance.SaveGame();
 		
 		Global.Instance.JustDied = false;
 		allowMovement = false;
+		
+		SaveFileManager.Instance.SaveGame();
 	}
 	
 	public override void _PhysicsProcess(double delta)
