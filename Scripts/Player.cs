@@ -11,6 +11,8 @@ public partial class Player : CharacterBody2D
 	private float speed = 200.0f;
 	private float jumpVelocity = -500.0f;
 	private float bounceAmount = -900.0f;
+	private Vector2 velocityBeforeCollision;
+	private bool hasBoosted;
 	
 	private AnimatedSprite2D as2d;
 	private CpuParticles2D deathParticles;
@@ -75,7 +77,7 @@ public partial class Player : CharacterBody2D
 	{
 		Vector2 velocity = Velocity;
 		Vector2 direction = Input.GetVector("Move_left", "Move_right", "Move_up", "Move_down");
-
+		
 		// Apply gravity
 		if (!IsOnFloor())
 		{
@@ -127,17 +129,43 @@ public partial class Player : CharacterBody2D
 		}
 		
 		Velocity = velocity;
+		velocityBeforeCollision = velocity;
 		MoveAndSlide();
 	}
 	
 	private void _on_area_2d_body_entered(Node2D body)
 	{
-		if (body.Name == "LadderLayer") {allowClimb = true;}
+		if (body.Name == "PlatformLayer")
+		{
+			hasBoosted = false;
+		}
+		
+		if (body.Name == "LadderLayer")
+		{
+			allowClimb = true;
+		}
 		
 		if (body.Name == "BounceLayer")
 		{
 			Vector2 velocity = Velocity;
 			velocity.Y = bounceAmount;
+			Velocity = velocity;
+		}
+
+		if (body.Name == "BoostLayer")
+		{
+			Vector2 velocity = Velocity;
+
+			if (hasBoosted)
+			{
+				velocity.Y = -velocityBeforeCollision.Y;
+			}
+			else
+			{
+				velocity.Y = -velocityBeforeCollision.Y * 1.2f;
+				hasBoosted = true;
+			}
+			
 			Velocity = velocity;
 		}
 

@@ -37,7 +37,6 @@ follow_mode = 5
 zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_d1mwp")
 tween_on_load = false
-follow_offset = Vector2(0, -100)
 follow_damping = true
 follow_damping_value = Vector2(0.2, 0.2)
 dead_zone_height = 0.2
