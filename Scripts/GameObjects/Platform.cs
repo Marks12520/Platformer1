@@ -12,6 +12,8 @@ public partial class Platform : AnimatableBody2D
 	[Export] private Node2D target;
 	private Vector2 targetPosition;
 	private Vector2 startPosition;
+	private Timer ascendWait;
+	private Timer descendWait;
 	
 	[Export] private float speed = 4;
 
@@ -20,6 +22,8 @@ public partial class Platform : AnimatableBody2D
 		playerArea = GetNode<Area2D>("PlayerArea");
 		targetPosition = target.GlobalPosition;
 		startPosition = GlobalPosition;
+		ascendWait = GetNode<Timer>("AscendWait");
+		descendWait = GetNode<Timer>("DescendWait");
 		if (loop)
 		{
 			playerArea.Monitoring = false;
@@ -39,7 +43,7 @@ public partial class Platform : AnimatableBody2D
 				playerArea.Monitoring = false;
 				if (loop)
 				{
-					isAscending = true;
+					ascendWait.Start();
 				}
 				return;
 			}
@@ -51,7 +55,7 @@ public partial class Platform : AnimatableBody2D
 			if (GlobalPosition.DistanceTo(startPosition) <= 0)
 			{
 				isAscending = false;
-				isDescending = true;
+				descendWait.Start();
 				return;
 			}
 			position += targetPosition.DirectionTo(startPosition) * speed;
@@ -74,5 +78,15 @@ public partial class Platform : AnimatableBody2D
 		{
 			isDescending = false;
 		}
+	}
+
+	private void _on_ascend_wait_timeout()
+	{
+		isAscending = true;
+	}
+
+	private void _on_descend_wait_timeout()
+	{
+		isDescending = true;
 	}
 }

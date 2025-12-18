@@ -27,5 +27,13 @@ shape = SubResource("RectangleShape2D_3ei3s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2tcf6")
 
+[node name="AscendWait" type="Timer" parent="."]
+one_shot = true
+
+[node name="DescendWait" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]
 [connection signal="body_exited" from="PlayerArea" to="." method="_on_player_area_body_exited"]
+[connection signal="timeout" from="AscendWait" to="." method="_on_ascend_wait_timeout"]
+[connection signal="timeout" from="DescendWait" to="." method="_on_descend_wait_timeout"]
