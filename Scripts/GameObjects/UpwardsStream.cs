@@ -59,7 +59,6 @@ public partial class UpwardsStream : Area2D
 		{
 			IsStreamActive = true;
 			particles.Emitting = true;
-			GD.Print("Stream is active");
 		}
 	}
 }

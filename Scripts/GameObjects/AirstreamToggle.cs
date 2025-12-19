@@ -17,7 +17,6 @@ public partial class AirstreamToggle : Area2D
 			UpwardsStream.Instance.AddToggle();
 			as2d.Animation = "On";
 			SetDeferred("monitoring", false);
-			GD.Print(Name + " toggled");
 		}
 	}
 }

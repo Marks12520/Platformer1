@@ -132,7 +132,6 @@ public partial class Player : CharacterBody2D
 		Velocity = velocity;
 		velocityBeforeCollision = velocity;
 		MoveAndSlide();
-		GD.Print(isOnImpulse);
 	}
 	
 	private void _on_area_2d_body_entered(Node2D body)
@@ -220,13 +219,11 @@ public partial class Player : CharacterBody2D
 
 	private void _on_death_timer_timeout()
 	{
-		GD.Print("Reloading scene...");
 		GetTree().ReloadCurrentScene();
 	}
 
 	private void _on_idle_timer_timeout()
 	{
-		GD.Print("Player is idle");
 		cameras.SetIdleCameraPriority(2);
 	}
 
