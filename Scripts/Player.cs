@@ -13,6 +13,7 @@ public partial class Player : CharacterBody2D
 	private float bounceAmount = -900.0f;
 	private Vector2 velocityBeforeCollision;
 	private bool hasBoosted;
+	private bool isOnImpulse;
 	
 	private AnimatedSprite2D as2d;
 	private CpuParticles2D deathParticles;
@@ -97,7 +98,7 @@ public partial class Player : CharacterBody2D
 			FlipCharacter(direction);
 			idleTimer.Start();
 		}
-		else
+		else if (!isOnImpulse)
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
 		}
@@ -131,6 +132,7 @@ public partial class Player : CharacterBody2D
 		Velocity = velocity;
 		velocityBeforeCollision = velocity;
 		MoveAndSlide();
+		GD.Print(isOnImpulse);
 	}
 	
 	private void _on_area_2d_body_entered(Node2D body)
@@ -201,6 +203,19 @@ public partial class Player : CharacterBody2D
 		}
 		
 		if (area.Name == "SnowStart"){EmitSignalStartSnow();}
+
+		if (Global.Instance.RemoveNumbers(area.Name) == "Impulse")
+		{
+			isOnImpulse = true;
+		}
+	}
+
+	private void _on_player_area_area_exited(Area2D area)
+	{
+		if (Global.Instance.RemoveNumbers(area.Name) == "Impulse")
+		{
+			isOnImpulse = false;
+		}
 	}
 
 	private void _on_death_timer_timeout()

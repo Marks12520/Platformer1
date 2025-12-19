@@ -311,6 +311,7 @@ script = ExtResource("4_u74ce")
 metadata/_custom_type_script = "uid://uoydc7q85s3t"
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="PlayerArea" to="." method="_on_player_area_area_exited"]
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="PlayerArea" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

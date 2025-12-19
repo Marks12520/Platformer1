@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvnyc2dd0lda1"]
+
+[ext_resource type="Script" uid="uid://dposmx8a23re" path="res://Scripts/GameObjects/Impulse.cs" id="1_l5tb4"]
+[ext_resource type="Texture2D" uid="uid://brb0017yrcobp" path="res://Assets/Sprites/background.png" id="1_rsu1f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsu1f"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5tb4"]
+atlas = ExtResource("1_rsu1f")
+region = Rect2(64, 32, 32, 32)
+
+[node name="Impulse" type="Area2D"]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_l5tb4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rsu1f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_l5tb4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
