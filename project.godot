@@ -102,7 +102,7 @@ mainmenu={
 [physics]
 
 2d/physics_engine="GodotPhysics2D"
-2d/default_gravity=1960.0
+2d/default_gravity=1800.0
 common/physics_interpolation=true
 
 [project_time_traker]

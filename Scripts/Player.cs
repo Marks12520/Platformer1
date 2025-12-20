@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.Text.RegularExpressions;
-using PhantomCamera;
 
 public partial class Player : CharacterBody2D
 {
