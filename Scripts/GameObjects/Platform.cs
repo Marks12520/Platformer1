@@ -37,10 +37,11 @@ public partial class Platform : AnimatableBody2D
 		
 		if (isDescending)
 		{
-			if (GlobalPosition.DistanceTo(targetPosition) <= 0)
+			if (GlobalPosition.DistanceTo(targetPosition) <= 2)
 			{
 				isDescending = false;
 				playerArea.Monitoring = false;
+				GlobalPosition = targetPosition;
 				if (loop)
 				{
 					ascendWait.Start();

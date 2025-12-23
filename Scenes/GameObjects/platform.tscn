@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c2ovswrnohwml" path="res://Assets/Sprites/platform.png" id="1_t2psr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ei3s"]
-size = Vector2(80, 80)
+size = Vector2(80, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tcf6"]
 size = Vector2(96, 32)
@@ -21,7 +21,7 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
-position = Vector2(0, -56)
+position = Vector2(0, -20)
 shape = SubResource("RectangleShape2D_3ei3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
