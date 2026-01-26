@@ -19,6 +19,7 @@ script = ExtResource("1_s51ir")
 limitShape = []
 
 [node name="Camera2D" type="Camera2D" parent="."]
+top_level = true
 position = Vector2(-145, -210)
 zoom = Vector2(2, 2)
 editor_draw_limits = true
