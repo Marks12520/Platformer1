@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://m5rkg0o30k4y"]
+[gd_resource type="TileSet" format=3 uid="uid://m5rkg0o30k4y"]
 
 [ext_resource type="Texture2D" uid="uid://v85482lmhgdb" path="res://Assets/Sprites/effectors.png" id="1_moq14"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://6vjst7js3y7u"]
+[gd_scene format=3 uid="uid://6vjst7js3y7u"]
 
 [ext_resource type="Script" uid="uid://d22qrh8luu4li" path="res://Scripts/GameObjects/Teleporter.cs" id="1_75k4i"]
 [ext_resource type="Texture2D" uid="uid://dwq74r4wravlw" path="res://Assets/Sprites/teleporters.png" id="2_75k4i"]
@@ -228,39 +228,39 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Teleporter" type="Node2D"]
+[node name="Teleporter" type="Node2D" unique_id=1421957493]
 script = ExtResource("1_75k4i")
 
-[node name="InputArea" type="Area2D" parent="."]
+[node name="InputArea" type="Area2D" parent="." unique_id=140061719]
 collision_layer = 128
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InputArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputArea" unique_id=515122561]
 scale = Vector2(1.295, 1.295)
 shape = SubResource("RectangleShape2D_cx2lq")
 
-[node name="InputAnimatedSprite2D" type="AnimatedSprite2D" parent="InputArea"]
+[node name="InputAnimatedSprite2D" type="AnimatedSprite2D" parent="InputArea" unique_id=872728592]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mrtqa")
 animation = &"Standby"
 autoplay = "Standby"
 
-[node name="OutputArea" type="Area2D" parent="."]
+[node name="OutputArea" type="Area2D" parent="." unique_id=1644447941]
 position = Vector2(71, 0)
 collision_layer = 128
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OutputArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutputArea" unique_id=55335099]
 scale = Vector2(1.295, 1.295)
 shape = SubResource("RectangleShape2D_cx2lq")
 
-[node name="OutputAnimatedSprite2D" type="AnimatedSprite2D" parent="OutputArea"]
+[node name="OutputAnimatedSprite2D" type="AnimatedSprite2D" parent="OutputArea" unique_id=1493648952]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_2aurt")
 animation = &"Standby"
 autoplay = "Standby"
 
-[node name="CooldownTimer" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="." unique_id=1079335012]
 wait_time = 2.0
 one_shot = true
 

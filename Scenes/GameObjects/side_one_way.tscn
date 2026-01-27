@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdrux5mgevle4"]
+[gd_scene format=3 uid="uid://bdrux5mgevle4"]
 
 [ext_resource type="Texture2D" uid="uid://2ulhbq65gq8c" path="res://Assets/Sprites/dirt.png" id="1_r5k5t"]
 
@@ -9,14 +9,14 @@ region = Rect2(272, 256, 14, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1b78"]
 size = Vector2(31.999998, 6)
 
-[node name="SideOneWay" type="StaticBody2D"]
+[node name="SideOneWay" type="StaticBody2D" unique_id=1990068920]
 top_level = true
 collision_mask = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=151907421]
 texture = SubResource("AtlasTexture_d1mwp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020866351]
 position = Vector2(4, 0)
 rotation = -4.712389
 shape = SubResource("RectangleShape2D_u1b78")

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bleedx7bujs2p"]
+[gd_resource type="TileSet" format=3 uid="uid://bleedx7bujs2p"]
 
 [ext_resource type="Texture2D" uid="uid://bl44gb20gq8ai" path="res://Assets/Sprites/dangers.png" id="1_21e5r"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbyfymmc32vnj"]
+[gd_scene format=3 uid="uid://cbyfymmc32vnj"]
 
 [ext_resource type="Texture2D" uid="uid://bl44gb20gq8ai" path="res://Assets/Sprites/dangers.png" id="1_ar2on"]
 [ext_resource type="Script" uid="uid://8xs8ql6mu7p7" path="res://Scripts/GameObjects/FallingSpike.cs" id="1_r3tli"]
@@ -46,21 +46,19 @@ region = Rect2(64, 0, 32, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvbns"]
 size = Vector2(32, 13)
 
-[node name="FallingSpike" type="AnimatableBody2D"]
+[node name="FallingSpike" type="AnimatableBody2D" unique_id=672773193]
 collision_layer = 32
 collision_mask = 4
 script = ExtResource("1_r3tli")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_yvbns")
-}
-autoplay = "Fall"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=32069293]
+libraries/ = SubResource("AnimationLibrary_yvbns")
+autoplay = &"Fall"
 speed_scale = 3.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1034015388]
 texture = SubResource("AtlasTexture_r3tli")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2062903173]
 position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_yvbns")

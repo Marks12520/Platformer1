@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://duklhvuyyqi3a"]
+[gd_scene format=3 uid="uid://duklhvuyyqi3a"]
 
-[ext_resource type="Script" path="res://addons/project_time_tracker/Demo/TestAccessFunctions.gd" id="1_7vbgl"]
+[ext_resource type="Script" uid="uid://br1ct7lu7otnv" path="res://addons/project_time_tracker/Demo/TestAccessFunctions.gd" id="1_7vbgl"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=215317745]
 
-[node name="TestAccessFunctions" type="MarginContainer" parent="." node_paths=PackedStringArray("lbl_st", "lbl_taa", "lbl_taas", "lbl_tp", "lbl_tps")]
+[node name="TestAccessFunctions" type="MarginContainer" parent="." unique_id=1348811908 node_paths=PackedStringArray("lbl_st", "lbl_taa", "lbl_taas", "lbl_tp", "lbl_tps")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,96 +21,96 @@ lbl_taas = NodePath("VBoxContainer/HBoxContainer2/VBoxContainer3/Label2")
 lbl_tp = NodePath("VBoxContainer/HBoxContainer3/VBoxContainer4/Label2")
 lbl_tps = NodePath("VBoxContainer/HBoxContainer3/VBoxContainer5/Label2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TestAccessFunctions"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TestAccessFunctions" unique_id=1030822465]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TestAccessFunctions/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TestAccessFunctions/VBoxContainer" unique_id=5151820]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TestAccessFunctions/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TestAccessFunctions/VBoxContainer/HBoxContainer" unique_id=1982546595]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=952058904]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Tracking Started TimeStamp"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=647887318]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TestAccessFunctions/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TestAccessFunctions/VBoxContainer" unique_id=322389668]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2" unique_id=519895840]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+[node name="Label" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1818973544]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Total Active Time"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+[node name="Label2" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1564341123]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2" unique_id=1642953511]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2/VBoxContainer3"]
+[node name="Label" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=591785550]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Total Active Time String"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2/VBoxContainer3"]
+[node name="Label2" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer2/VBoxContainer3" unique_id=1808033150]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="TestAccessFunctions/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="TestAccessFunctions/VBoxContainer" unique_id=388610305]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3" unique_id=1916441222]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3/VBoxContainer4"]
+[node name="Label" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3/VBoxContainer4" unique_id=2117288194]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Total Period"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3/VBoxContainer4"]
+[node name="Label2" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3/VBoxContainer4" unique_id=1798546060]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3"]
+[node name="VBoxContainer5" type="VBoxContainer" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3" unique_id=656417045]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3/VBoxContainer5"]
+[node name="Label" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3/VBoxContainer5" unique_id=1918118614]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Total Period String"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3/VBoxContainer5"]
+[node name="Label2" type="Label" parent="TestAccessFunctions/VBoxContainer/HBoxContainer3/VBoxContainer5" unique_id=339509214]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 16

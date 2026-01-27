@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ww7qrrq562qc"]
+[gd_scene format=3 uid="uid://ww7qrrq562qc"]
 
 [ext_resource type="Script" uid="uid://bac1pb8rvf2yb" path="res://Scripts/GameObjects/FadeAnimation.cs" id="1_u8rqp"]
 
@@ -72,7 +72,7 @@ _data = {
 &"RESET": SubResource("Animation_u8rqp")
 }
 
-[node name="ColorRect" type="ColorRect"]
+[node name="ColorRect" type="ColorRect" unique_id=1873794853]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -82,8 +82,6 @@ color = Color(0, 0, 0, 0)
 script = ExtResource("1_u8rqp")
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_jki20")
-}
-autoplay = "FadeOut"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1688435638]
+libraries/ = SubResource("AnimationLibrary_jki20")
+autoplay = &"FadeOut"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://djsjkl4jw3umj"]
+[gd_scene format=3 uid="uid://djsjkl4jw3umj"]
 
 [ext_resource type="Script" uid="uid://b1tjbnm1pstdl" path="res://Scripts/GameObjects/Platform.cs" id="1_2tcf6"]
 [ext_resource type="Texture2D" uid="uid://c2ovswrnohwml" path="res://Assets/Sprites/platform.png" id="1_t2psr"]
@@ -9,28 +9,28 @@ size = Vector2(80, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tcf6"]
 size = Vector2(96, 32)
 
-[node name="Platform" type="AnimatableBody2D"]
+[node name="Platform" type="AnimatableBody2D" unique_id=585639165]
 collision_mask = 4
 script = ExtResource("1_2tcf6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1327347029]
 texture = ExtResource("1_t2psr")
 
-[node name="PlayerArea" type="Area2D" parent="."]
+[node name="PlayerArea" type="Area2D" parent="." unique_id=780869559]
 collision_layer = 16
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea" unique_id=62093684]
 position = Vector2(0, -20)
 shape = SubResource("RectangleShape2D_3ei3s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=873369868]
 shape = SubResource("RectangleShape2D_2tcf6")
 
-[node name="AscendWait" type="Timer" parent="."]
+[node name="AscendWait" type="Timer" parent="." unique_id=137071973]
 one_shot = true
 
-[node name="DescendWait" type="Timer" parent="."]
+[node name="DescendWait" type="Timer" parent="." unique_id=518013134]
 one_shot = true
 
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_player_area_body_entered"]

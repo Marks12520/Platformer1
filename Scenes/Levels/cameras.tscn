@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuf7yvljoi8on"]
+[gd_scene format=3 uid="uid://cuf7yvljoi8on"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_s27va"]
 [ext_resource type="Script" uid="uid://b88v3g7pmjxc5" path="res://Scripts/GameObjects/Cameras.cs" id="1_s51ir"]
@@ -14,22 +14,22 @@ duration = 5.0
 transition = 5
 metadata/_custom_type_script = "uid://8umksf8e80fw"
 
-[node name="Cameras" type="Node" node_paths=PackedStringArray("limitShape")]
+[node name="Cameras" type="Node" unique_id=1073176874 node_paths=PackedStringArray("limitShape")]
 script = ExtResource("1_s51ir")
 limitShape = []
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=888540383]
 top_level = true
 position = Vector2(-145, -210)
 zoom = Vector2(2, 2)
 editor_draw_limits = true
 
-[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=52983961]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_s27va")
 
-[node name="FollowCamera" type="Node2D" parent="."]
+[node name="FollowCamera" type="Node2D" parent="." unique_id=873362373]
 top_level = true
 position = Vector2(-145, -210)
 script = ExtResource("2_s51ir")
@@ -45,7 +45,7 @@ draw_limits = true
 limit_margin = Vector4i(15, 170, 15, 30)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="IdleCamera" type="Node2D" parent="."]
+[node name="IdleCamera" type="Node2D" parent="." unique_id=1645792549]
 top_level = true
 position = Vector2(67.16599, -127.525)
 script = ExtResource("2_s51ir")

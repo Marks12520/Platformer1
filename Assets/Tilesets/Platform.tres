@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bemgd3w7oa23h"]
+[gd_resource type="TileSet" format=3 uid="uid://bemgd3w7oa23h"]
 
 [ext_resource type="Texture2D" uid="uid://2ulhbq65gq8c" path="res://Assets/Sprites/dirt.png" id="1_7jycl"]
 [ext_resource type="Texture2D" uid="uid://3ovbb0cx55jf" path="res://Assets/Sprites/snow.png" id="2_6iccu"]
@@ -41,21 +41,21 @@ texture_region_size = Vector2i(32, 32)
 0: [0],
 3: [0],
 4: [0],
-12: [0, 2],
-15: [0, 2],
+12: [0],
+15: [0],
 &"symmetry": 0,
 &"type": 0
 }
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:2/0/metadata/_better_terrain = {
-0: [0],
-3: [0],
+0: [0, 2],
+3: [0, 2],
 4: [0],
 7: [0],
 8: [0],
-11: [0, 2],
-12: [0, 2],
+11: [0],
+12: [0],
 15: [0, 2],
 &"symmetry": 0,
 &"type": 0
@@ -359,11 +359,11 @@ texture_region_size = Vector2i(32, 32)
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:2/0/metadata/_better_terrain = {
 0: [2, 3],
-3: [2, 0, 3],
-4: [2, 0, 3],
+3: [2, 3],
+4: [2, 3],
 7: [2, 0],
-8: [2],
-11: [2],
+8: [2, 0],
+11: [2, 0],
 12: [2],
 15: [2, 3],
 &"type": 2
@@ -547,8 +547,11 @@ texture_region_size = Vector2i(32, 32)
 10:8/0 = 0
 10:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 10:8/0/metadata/_better_terrain = {
-0: [2],
-8: [0],
+0: [2, 0],
+3: [0],
+4: [0],
+12: [2],
+15: [2],
 &"type": 2
 }
 

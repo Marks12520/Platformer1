@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://sejn5li676gi"]
+[gd_scene format=3 uid="uid://sejn5li676gi"]
 
 [ext_resource type="Script" uid="uid://dmw5i6ec4rul2" path="res://Scripts/Menus/GameMenu.cs" id="1_r7qr8"]
 [ext_resource type="Texture2D" uid="uid://b0qmnhwudxcpx" path="res://Assets/Sprites/collectible.png" id="2_mvukl"]
@@ -35,7 +35,7 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("3_k8fyo")
 region = Rect2(160, 0, 32, 32)
 
-[node name="GameMenu" type="Control"]
+[node name="GameMenu" type="Control" unique_id=277326983]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +45,7 @@ grow_vertical = 2
 script = ExtResource("1_r7qr8")
 metadata/_edit_use_anchors_ = true
 
-[node name="FlowerIcon" type="TextureRect" parent="."]
+[node name="FlowerIcon" type="TextureRect" parent="." unique_id=606914680]
 layout_mode = 1
 offset_left = 19.0
 offset_top = 21.0
@@ -53,7 +53,7 @@ offset_right = 110.0
 offset_bottom = 112.0
 texture = SubResource("AtlasTexture_k8fyo")
 
-[node name="FlowerLabel" type="Label" parent="."]
+[node name="FlowerLabel" type="Label" parent="." unique_id=1091595543]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.063541666
@@ -66,7 +66,7 @@ text = "x"
 label_settings = SubResource("LabelSettings_fllhd")
 metadata/_edit_use_anchors_ = true
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=1759538651]
 position = Vector2(22, 832)
 scale = Vector2(4.832311, 4.8134)
 texture_normal = SubResource("AtlasTexture_l7fx2")
@@ -74,7 +74,7 @@ passby_press = true
 action = "Move_left"
 visibility_mode = 1
 
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="." unique_id=1089083667]
 position = Vector2(193, 831.00006)
 scale = Vector2(4.832106, 4.8131957)
 texture_normal = SubResource("AtlasTexture_lntr4")
@@ -82,7 +82,7 @@ passby_press = true
 action = "Move_right"
 visibility_mode = 1
 
-[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="." unique_id=8938806]
 position = Vector2(1699, 910)
 scale = Vector2(4.8323216, 4.8134103)
 texture_normal = SubResource("AtlasTexture_4do7r")
@@ -90,7 +90,7 @@ passby_press = true
 action = "Move_down"
 visibility_mode = 1
 
-[node name="TouchScreenButton4" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="." unique_id=877026634]
 position = Vector2(1697, 570.00006)
 scale = Vector2(4.8320847, 4.8131742)
 texture_normal = SubResource("AtlasTexture_u6tpt")
@@ -98,7 +98,7 @@ passby_press = true
 action = "Move_up"
 visibility_mode = 1
 
-[node name="TouchScreenButton5" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="." unique_id=1994070696]
 position = Vector2(1696.0001, 741)
 scale = Vector2(4.8325663, 4.813654)
 texture_normal = SubResource("AtlasTexture_3nqqn")
@@ -106,7 +106,7 @@ passby_press = true
 action = "Jump"
 visibility_mode = 1
 
-[node name="TouchScreenButton6" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="." unique_id=1667382374]
 position = Vector2(1745.0001, 17)
 scale = Vector2(4.8325663, 4.813654)
 texture_normal = SubResource("AtlasTexture_hqbuy")

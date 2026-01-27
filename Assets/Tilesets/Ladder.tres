@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dr2h5xnel4dks"]
+[gd_resource type="TileSet" format=3 uid="uid://dr2h5xnel4dks"]
 
 [ext_resource type="Texture2D" uid="uid://cieqselmljqgp" path="res://Assets/Sprites/ladder.png" id="1_mxkjr"]
 
