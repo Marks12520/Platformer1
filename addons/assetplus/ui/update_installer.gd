@@ -91,16 +91,34 @@ func _on_download_completed(result: int, code: int, headers: PackedStringArray, 
 		_fail("Could not find addon folder in downloaded package")
 		return
 
+	# Verify the source has required files before proceeding
+	var plugin_cfg = addon_source.path_join("plugin.cfg")
+	if not FileAccess.file_exists(plugin_cfg):
+		_fail("Invalid addon: plugin.cfg not found in %s" % addon_source)
+		return
+
+	SettingsDialog.debug_print("Found valid addon at: %s" % addon_source)
+
 	# Disable the plugin (frees file locks)
 	_disable_plugin()
 
 	# Delete old addon folder
 	var addon_dest = ProjectSettings.globalize_path(ADDON_PATH)
 	if DirAccess.dir_exists_absolute(addon_dest):
+		SettingsDialog.debug_print("Deleting old addon at: %s" % addon_dest)
 		_delete_directory_recursive(addon_dest)
 
 	# Copy new addon folder
-	_copy_directory_recursive(addon_source, addon_dest)
+	SettingsDialog.debug_print("Copying from %s to %s" % [addon_source, addon_dest])
+	var copy_success = _copy_directory_recursive(addon_source, addon_dest)
+
+	# Verify copy was successful
+	var dest_plugin_cfg = addon_dest.path_join("plugin.cfg")
+	if not FileAccess.file_exists(dest_plugin_cfg):
+		_fail("Copy failed: plugin.cfg not found in destination. Please reinstall manually.")
+		return
+
+	SettingsDialog.debug_print("Copy verified, plugin.cfg exists at destination")
 
 	# Re-enable the plugin in settings (before restart)
 	_enable_plugin()
@@ -192,26 +210,36 @@ func _delete_directory_recursive(path: String) -> void:
 	DirAccess.remove_absolute(path)
 
 
-func _copy_directory_recursive(from: String, to: String) -> void:
-	## Recursively copy a directory
-	DirAccess.make_dir_recursive_absolute(to)
+func _copy_directory_recursive(from: String, to: String) -> bool:
+	## Recursively copy a directory. Returns true on success.
+	var err = DirAccess.make_dir_recursive_absolute(to)
+	if err != OK and err != ERR_ALREADY_EXISTS:
+		SettingsDialog.debug_print("Failed to create directory: %s (error %d)" % [to, err])
+		return false
 
 	var dir = DirAccess.open(from)
 	if not dir:
-		return
+		SettingsDialog.debug_print("Failed to open source directory: %s" % from)
+		return false
 
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
+	var success = true
 	while file_name != "":
 		if file_name != "." and file_name != "..":
 			var from_path = from.path_join(file_name)
 			var to_path = to.path_join(file_name)
 			if dir.current_is_dir():
-				_copy_directory_recursive(from_path, to_path)
+				if not _copy_directory_recursive(from_path, to_path):
+					success = false
 			else:
-				dir.copy(from_path, to_path)
+				var copy_err = dir.copy(from_path, to_path)
+				if copy_err != OK:
+					SettingsDialog.debug_print("Failed to copy file: %s -> %s (error %d)" % [from_path, to_path, copy_err])
+					success = false
 		file_name = dir.get_next()
 	dir.list_dir_end()
+	return success
 
 
 func _fail(message: String) -> void:

@@ -5,6 +5,9 @@ extends AcceptDialog
 
 const GLOBAL_APP_FOLDER = "GodotAssetPlus"
 const CONFIG_FILE = "settings.cfg"
+const ICON_CACHE_FOLDER = "icon_cache"
+
+signal clear_icon_cache_requested
 const UpdateChecker = preload("res://addons/assetplus/ui/update_checker.gd")
 
 
@@ -41,6 +44,8 @@ var _export_path_btn: Button
 var _global_folder_edit: LineEdit
 var _global_folder_btn: Button
 var _debug_option: OptionButton
+var _cache_size_label: Label
+var _clear_cache_btn: Button
 var _store_checkboxes: Dictionary = {}
 var _version_label: Label
 var _check_updates_btn: Button
@@ -149,6 +154,26 @@ func _build_ui() -> void:
 	debug_desc.add_theme_color_override("font_color", Color(0.5, 0.5, 0.5))
 	debug_desc.add_theme_font_size_override("font_size", 11)
 	debug_section.add_child(debug_desc)
+
+	# Icon cache info
+	var cache_hbox = HBoxContainer.new()
+	cache_hbox.add_theme_constant_override("separation", 10)
+	debug_section.add_child(cache_hbox)
+
+	_cache_size_label = Label.new()
+	_cache_size_label.text = "Icon cache: calculating..."
+	_cache_size_label.add_theme_color_override("font_color", Color(0.5, 0.5, 0.5))
+	_cache_size_label.add_theme_font_size_override("font_size", 11)
+	cache_hbox.add_child(_cache_size_label)
+
+	_clear_cache_btn = Button.new()
+	_clear_cache_btn.text = "Clear Cache"
+	_clear_cache_btn.tooltip_text = "Delete all cached icon images"
+	_clear_cache_btn.pressed.connect(_on_clear_cache)
+	cache_hbox.add_child(_clear_cache_btn)
+
+	# Calculate cache size async
+	_update_cache_size_label()
 
 	main_vbox.add_child(HSeparator.new())
 
@@ -355,6 +380,56 @@ func _on_open_config_folder() -> void:
 	var config_path = _get_global_config_path()
 	var folder_path = config_path.get_base_dir()
 	OS.shell_open(folder_path)
+
+
+func _get_icon_cache_dir() -> String:
+	var config_dir = OS.get_config_dir()
+	return config_dir.path_join(GLOBAL_APP_FOLDER).path_join(ICON_CACHE_FOLDER)
+
+
+func _get_cache_size() -> int:
+	## Returns total size of icon cache in bytes
+	var cache_dir = _get_icon_cache_dir()
+	if not DirAccess.dir_exists_absolute(cache_dir):
+		return 0
+
+	var total_size = 0
+	var dir = DirAccess.open(cache_dir)
+	if not dir:
+		return 0
+
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name != "":
+		if not dir.current_is_dir() and file_name.ends_with(".png"):
+			var file_path = cache_dir.path_join(file_name)
+			var file = FileAccess.open(file_path, FileAccess.READ)
+			if file:
+				total_size += file.get_length()
+				file.close()
+		file_name = dir.get_next()
+	dir.list_dir_end()
+
+	return total_size
+
+
+func _format_size(bytes: int) -> String:
+	if bytes < 1024:
+		return "%d B" % bytes
+	elif bytes < 1024 * 1024:
+		return "%.1f KB" % (bytes / 1024.0)
+	else:
+		return "%.1f MB" % (bytes / (1024.0 * 1024.0))
+
+
+func _update_cache_size_label() -> void:
+	var size = _get_cache_size()
+	_cache_size_label.text = "Icon cache: %s" % _format_size(size)
+
+
+func _on_clear_cache() -> void:
+	clear_icon_cache_requested.emit()
+	_update_cache_size_label()
 
 
 func _get_plugin_version() -> String:

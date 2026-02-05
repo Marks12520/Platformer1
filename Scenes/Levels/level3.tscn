@@ -59,7 +59,7 @@ tile_set = ExtResource("6_pyjyt")
 
 [node name="Player" parent="." unique_id=672494956 node_paths=PackedStringArray("nextSpawn", "previousSpawn", "deathSpawn", "fadeAnimation", "cameras") instance=ExtResource("7_qm4xx")]
 position = Vector2(52, -85)
-nextSpawn = NodePath("../Spawns/NextSpawn2")
+nextSpawn = NodePath("../Spawns/NextSpawn")
 previousSpawn = NodePath("../Spawns/PreviousSpawn")
 deathSpawn = NodePath("../Spawns/DeathSpawn")
 fadeAnimation = NodePath("../CanvasLayer/Fade")
