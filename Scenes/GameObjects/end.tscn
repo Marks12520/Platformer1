@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ct71bqjryorvl"]
+
+[ext_resource type="Texture2D" uid="uid://c6jv0pua5kh1i" path="res://Assets/Sprites/end.png" id="1_phm5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hle8"]
+size = Vector2(31, 63)
+
+[node name="End" type="Area2D" unique_id=671199117]
+collision_layer = 16
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=881584140]
+texture = ExtResource("1_phm5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1563414707]
+position = Vector2(0.5, 32.5)
+shape = SubResource("RectangleShape2D_4hle8")
